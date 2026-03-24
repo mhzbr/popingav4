@@ -70,6 +70,16 @@ POP INGÁ
 
 <div class="header-actions">
 
+
+
+<button class="icon-btn" id="theme-toggle">
+
+🌙
+
+</button>
+
+
+
 <a href="carrinho.html" class="icon-btn">
 
 🛒
@@ -77,6 +87,8 @@ POP INGÁ
 <span class="cart-count">0</span>
 
 </a>
+
+
 
 </div>
 
@@ -242,7 +254,7 @@ Escolha seu universo favorito
 
 <strong>DC</strong>
 
-<span>Batman, Flash, Coringa...</span>
+<span>Batman, Flash...</span>
 
 </a>
 
@@ -252,7 +264,7 @@ Escolha seu universo favorito
 
 <strong>Marvel</strong>
 
-<span>Homem de Ferro, Hulk...</span>
+<span>Homem de Ferro...</span>
 
 </a>
 
@@ -262,7 +274,7 @@ Escolha seu universo favorito
 
 <strong>Anime</strong>
 
-<span>Naruto, Dragon Ball...</span>
+<span>Naruto, One Piece...</span>
 
 </a>
 
@@ -272,7 +284,7 @@ Escolha seu universo favorito
 
 <strong>Disney</strong>
 
-<span>Toy Story, Mickey...</span>
+<span>Toy Story...</span>
 
 </a>
 
@@ -282,7 +294,7 @@ Escolha seu universo favorito
 
 <strong>Séries</strong>
 
-<span>Friends, Stranger Things...</span>
+<span>Stranger Things...</span>
 
 </a>
 
@@ -292,7 +304,7 @@ Escolha seu universo favorito
 
 <strong>Filmes</strong>
 
-<span>Jurassic Park, IT...</span>
+<span>Jurassic Park...</span>
 
 </a>
 
@@ -302,7 +314,7 @@ Escolha seu universo favorito
 
 <strong>Games</strong>
 
-<span>Fortnite, Sonic...</span>
+<span>Fortnite...</span>
 
 </a>
 
@@ -312,7 +324,7 @@ Escolha seu universo favorito
 
 <strong>Música</strong>
 
-<span>Queen, BTS...</span>
+<span>Queen...</span>
 
 </a>
 
@@ -374,7 +386,7 @@ Destaques
 
 <p>
 
-Alguns produtos populares
+Produtos populares
 
 </p>
 
@@ -658,8 +670,6 @@ Comprar
 
 
 
-
-
 </div>
 
 
@@ -682,11 +692,7 @@ Comprar
 
 <div class="container">
 
-
-
 POP INGÁ © 2026
-
-
 
 </div>
 
@@ -697,6 +703,68 @@ POP INGÁ © 2026
 
 
 <script src="cart.js"></script>
+
+
+
+<script>
+
+
+
+const themeToggle = document.getElementById("theme-toggle");
+
+
+
+const savedTheme = localStorage.getItem("theme");
+
+
+
+if(savedTheme === "light"){
+
+document.body.classList.remove("dark-mode");
+
+themeToggle.textContent = "🌙";
+
+}else{
+
+document.body.classList.add("dark-mode");
+
+themeToggle.textContent = "☀️";
+
+}
+
+
+
+themeToggle.addEventListener("click", () => {
+
+
+
+document.body.classList.toggle("dark-mode");
+
+
+
+const dark = document.body.classList.contains("dark-mode");
+
+
+
+localStorage.setItem(
+
+"theme",
+
+dark ? "dark" : "light"
+
+);
+
+
+
+themeToggle.textContent = dark ? "☀️" : "🌙";
+
+
+
+});
+
+
+
+</script>
 
 
 
