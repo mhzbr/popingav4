@@ -670,13 +670,13 @@ POP SHIELD
 
 position:relative;
 
-padding:90px 0;
+padding: clamp (90px 8vw 120px) 0;
 
 margin-top:60px;
 
 background-image:url("assets/images/popshield-banner.png");
 
-background-size:1500px;
+background-size:cover;
 
 background-position:center;
 
@@ -831,11 +831,11 @@ background:rgba(255,255,255,.14);
 
 /* responsivo */
 
-@media(max-width:900px){
+@media(max-width:400px){
 
 .popshield{
-
 padding:70px 0;
+background-position: 60% center ;
 
 }
 
@@ -867,122 +867,231 @@ font-size:28px;
 FUNKO PERSONALIZADO
 ===================== */
 
+/* seção funkos personalizados */
+
 .custom-funko{
-  position: relative;
-  padding: 90px 0;
-  background-image: url("assets/images/personalizado.png");
-  background-size: 1500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-top: 60px;
+
+position:relative;
+
+width:100%;
+height: auto;
+
+padding:clamp(70px, 9vw, 120px) 0;
+
+margin-top:60px;
+
+background-image:url("assets/images/personalizado.png");
+
+background-size:1500px;
+
+background-position:right;
+
+background-repeat:no-repeat;
+
+overflow:hidden;
+
 }
 
+
+
+/* estrutura */
 
 .custom-content{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  min-height: 380px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:flex-end;
+
+min-height:380px;
+
 }
+
+/* bloco texto */
 
 .custom-text{
-  max-width: 520px;
-  text-align: right;
+
+max-width:520px;
+
+text-align:right;
+
 }
+
+/* etiqueta pequena */
 
 .custom-tag{
-  font-size: 13px;
-  color: var(--primary);
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 600;
-  letter-spacing: .08em;
+
+font-size:13px;
+
+color:var(--primary);
+
+display:block;
+
+margin-bottom:10px;
+
+font-weight:600;
+
+letter-spacing:.08em;
+
 }
+
+/* titulo */
 
 .custom-text h2{
-  font-size: 36px;
-  margin-bottom: 12px;
-  line-height: 1.1;
+
+font-size:36px;
+
+margin-bottom:12px;
+
+line-height:1.1;
+
 }
+
+/* descrição */
 
 .custom-text p{
-  color: white;
-  margin-bottom: 20px;
-  line-height: 1.7;
+
+color:var(--muted);
+
+margin-bottom:20px;
+
+line-height:1.7;
+
 }
 
+/* lista */
+
 .custom-list{
-  list-style: none;
-  margin-bottom: 22px;
-  display: grid;
-  gap: 8px;
-  font-size: 14px;
-  justify-items: end;
+
+list-style:none;
+
+margin-bottom:22px;
+
+display:grid;
+
+gap:8px;
+
+font-size:14px;
+
+justify-items:end;
+
 }
 
 .custom-list li{
-  color: var(--text);
+
+color:var(--text);
+
 }
+
+/* botões */
 
 .custom-actions{
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  flex-wrap: wrap;
+
+display:flex;
+
+gap:10px;
+
+justify-content:flex-end;
+
+flex-wrap:wrap;
+
 }
+
+/* botão */
 
 .custom-btn{
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
+
+padding:12px 22px;
+
+border-radius:10px;
+
+font-weight:600;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+min-height:46px;
+
 }
+
+/* botão principal */
 
 .custom-btn.primary{
-  background: linear-gradient(135deg,var(--primary),var(--primary-dark));
-  color: #111;
+
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--primary-dark)
+);
+
+color:#111;
+
 }
 
+/* botão secundário */
+
 .custom-btn.secondary{
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
-  color: #fff;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.12);
+
+color:white;
+
 }
 
 .custom-btn.secondary:hover{
-  background: rgba(255,255,255,.12);
+
+background:rgba(255,255,255,.14);
+
 }
 
+
+
 /* responsivo */
-@media(max-width:900px){
-  .custom-funko{
-    padding: 70px 0;
-    background-position: center;
-  }
 
-  .custom-content{
-    justify-content: center;
-    min-height: auto;
-  }
+@media(max-height:30px){
+ 
+.custom-funko{
+padding:70px 0;
 
-  .custom-text{
-    text-align: center;
-  }
+background-position:center;
+height: auto;
 
-  .custom-list{
-    justify-items: center;
-  }
+}
 
-  .custom-actions{
-    justify-content: center;
-  }
 
-  .custom-text h2{
-    font-size: 28px;
-  }
+
+
+
+.custom-text{
+
+text-align:center;
+
+}
+
+.custom-list{
+
+justify-items:center;
+
+}
+
+.custom-actions{
+
+justify-content:center;
+
+}
+
+.custom-text h2{
+
+font-size:24px;
+
+}
+
 }
 
 
