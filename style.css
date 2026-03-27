@@ -666,23 +666,33 @@ POP SHIELD
 
 /* seção pop shield */
 
+/* =========================
+POP SHIELD
+========================= */
+
 .popshield{
 
 position:relative;
 
-padding: clamp (90px 8vw 120px) 0;
+width:100%;
+
+padding:clamp(80px, 9vw, 120px) 0;
 
 margin-top:60px;
 
 background-image:url("assets/images/popshield-banner.png");
 
-background-size:cover;
+background-size:1500px;
 
 background-position:center;
 
 background-repeat:no-repeat;
 
+overflow:hidden;
+
 }
+
+/* overlay escuro */
 
 
 /* layout */
@@ -699,6 +709,8 @@ min-height:380px;
 
 }
 
+/* texto */
+
 .popshield-text{
 
 max-width:520px;
@@ -707,13 +719,13 @@ text-align:left;
 
 }
 
-/* texto */
+/* tag pequena */
 
 .popshield-tag{
 
 font-size:13px;
 
-color:#ffffff;
+color:#ffd84d;
 
 display:block;
 
@@ -725,13 +737,17 @@ letter-spacing:.08em;
 
 }
 
+/* titulo */
+
 .popshield-text h2{
 
 font-size:38px;
-
+color: yellow;
 margin-bottom:12px;
 
 }
+
+/* descrição */
 
 .popshield-text p{
 
@@ -777,6 +793,8 @@ flex-wrap:wrap;
 
 }
 
+/* botão */
+
 .popshield-btn{
 
 padding:12px 22px;
@@ -809,7 +827,7 @@ color:#111;
 
 }
 
-/* botão secundario */
+/* botão secundário */
 
 .popshield-btn.secondary{
 
@@ -829,23 +847,30 @@ background:rgba(255,255,255,.14);
 
 
 
-/* responsivo */
+/* =========================
+VERSÃO MOBILE
+========================= */
 
-@media(max-width:400px){
+@media(max-width:768px){
 
 .popshield{
-padding:70px 0;
-background-position: center ;
 
+padding:60px 0;
+
+margin-top:30px;
+
+background-image:url("assets/images/popshield-banner1.png");
+
+background-position:center;
+background-size: 400px;
 }
-
 
 
 .popshield-content{
 
 justify-content:center;
 
-text-align:center;
+min-height:auto;
 
 }
 
@@ -853,11 +878,49 @@ text-align:center;
 
 text-align:center;
 
+max-width:100%;
+
+padding:0 6px;
+
 }
 
 .popshield-text h2{
 
 font-size:28px;
+
+}
+
+.popshield-text p{
+
+font-size:14px;
+
+}
+
+.popshield-list{
+
+justify-items:center;
+
+}
+
+.popshield-actions{
+
+justify-content:center;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.popshield-btn{
+
+width:100%;
+
+max-width:260px;
+
+min-height:44px;
+
+font-size:14px;
 
 }
 
