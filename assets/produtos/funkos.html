@@ -6,747 +6,15 @@
   <title>Funkos | POP INGÁ</title>
   <meta
     name="description"
-    content="Explore a coleção de Funkos da POP INGÁ. Encontre lançamentos, exclusivos, Marvel, DC, animes, games e muito mais."
+    content="Catálogo completo de Funkos da POP INGÁ. Encontre colecionáveis de DC, Marvel, Anime, Disney, Séries, Filmes, Games, Música, Star Wars e Harry Potter."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-
-  <style>
-    :root {
-      --bg: #0b0e14;
-      --bg-soft: #121826;
-      --card: #161d2d;
-      --card-2: #1b2336;
-      --line: rgba(255,255,255,.08);
-      --text: #f4f7ff;
-      --muted: #a8b2c8;
-      --primary: #ffd84d;
-      --primary-dark: #f2c200;
-      --accent: #5da8ff;
-      --danger: #ff4d5a;
-      --shadow: 0 18px 40px rgba(0,0,0,.25);
-      --container: 1280px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(93,168,255,.08), transparent 22%),
-        radial-gradient(circle at top left, rgba(255,216,77,.07), transparent 20%),
-        var(--bg);
-      color: var(--text);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button, select {
-      font: inherit;
-    }
-
-    .container {
-      width: min(100% - 32px, var(--container));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      background: #07090d;
-      border-bottom: 1px solid var(--line);
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .topbar-inner {
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      padding: 8px 0;
-    }
-
-    .topbar-list {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(14px);
-      background: rgba(11,14,20,.88);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-main {
-      min-height: 82px;
-      display: grid;
-      grid-template-columns: 220px 1fr auto;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 24px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .logo-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #111;
-      font-weight: 800;
-    }
-
-    .searchbar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 10px 12px 10px 18px;
-    }
-
-    .searchbar input {
-      flex: 1;
-      background: transparent;
-      border: 0;
-      outline: none;
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    .searchbar input::placeholder {
-      color: #8591aa;
-    }
-
-    .search-btn {
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 0;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #111;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .header-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .icon-btn {
-      position: relative;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-    }
-
-    .badge {
-      position: absolute;
-      top: -6px;
-      right: -6px;
-      min-width: 22px;
-      height: 22px;
-      padding: 0 6px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: var(--danger);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      border: 2px solid var(--bg);
-    }
-
-    .nav {
-      border-top: 1px solid var(--line);
-    }
-
-    .nav-inner {
-      min-height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-      transition: .2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      font-size: 13px;
-      color: var(--primary);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .mobile-toggle {
-      display: none;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .mobile-menu {
-      display: none;
-      border-top: 1px solid var(--line);
-      background: rgba(11,14,20,.96);
-    }
-
-    .mobile-menu.open {
-      display: block;
-    }
-
-    .mobile-menu nav {
-      display: grid;
-      gap: 4px;
-      padding: 16px 0 20px;
-    }
-
-    .mobile-menu a {
-      padding: 12px 14px;
-      border-radius: 12px;
-      color: var(--muted);
-      background: rgba(255,255,255,.02);
-      border: 1px solid transparent;
-    }
-
-    .hero-page {
-      padding: 28px 0 18px;
-    }
-
-    .breadcrumb {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 18px;
-    }
-
-    .breadcrumb a:hover {
-      color: var(--text);
-    }
-
-    .page-banner {
-      position: relative;
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(115deg, rgba(7,10,16,.88), rgba(11,14,20,.6)),
-        url("assets/images/banner/banner-1.jpg") center/cover no-repeat;
-      min-height: 280px;
-      display: flex;
-      align-items: center;
-    }
-
-    .page-banner-content {
-      padding: 38px;
-      max-width: 700px;
-    }
-
-    .page-banner small {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--primary);
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-
-    .page-banner h1 {
-      font-size: clamp(28px, 5vw, 46px);
-      line-height: 1.08;
-      margin-bottom: 12px;
-    }
-
-    .page-banner p {
-      color: var(--muted);
-      font-size: 15px;
-      max-width: 600px;
-    }
-
-    .catalog-section {
-      padding: 26px 0 36px;
-    }
-
-    .catalog-layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 20px;
-      align-items: start;
-    }
-
-    .sidebar {
-      position: sticky;
-      top: 138px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .filter-card,
-    .content-card {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border-radius: 22px;
-      box-shadow: 0 18px 40px rgba(0,0,0,.18);
-    }
-
-    .filter-card {
-      padding: 20px;
-    }
-
-    .filter-card h3 {
-      font-size: 18px;
-      margin-bottom: 14px;
-    }
-
-    .filter-group {
-      margin-bottom: 18px;
-    }
-
-    .filter-group:last-child {
-      margin-bottom: 0;
-    }
-
-    .filter-group strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 10px;
-      color: var(--text);
-    }
-
-    .filter-list {
-      display: grid;
-      gap: 8px;
-    }
-
-    .filter-list a {
-      color: var(--muted);
-      font-size: 14px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid transparent;
-      transition: .2s ease;
-    }
-
-    .filter-list a:hover,
-    .filter-list a.active {
-      color: var(--text);
-      border-color: var(--line);
-      background: rgba(255,255,255,.05);
-    }
-
-    .catalog-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-
-    .catalog-top-left h2 {
-      font-size: 28px;
-      margin-bottom: 6px;
-    }
-
-    .catalog-top-left p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .catalog-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .catalog-actions select {
-      min-height: 46px;
-      padding: 0 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      outline: none;
-    }
-
-    .results-chip {
-      min-height: 46px;
-      padding: 0 16px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      display: inline-flex;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .product-card {
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0,0,0,.18);
-      transition: .22s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(93,168,255,.28);
-    }
-
-    .product-media {
-      position: relative;
-      aspect-ratio: 1 / 1;
-      background: #0d1220;
-      overflow: hidden;
-    }
-
-    .product-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: .25s ease;
-    }
-
-    .product-card:hover .product-media img {
-      transform: scale(1.04);
-    }
-
-    .product-tag {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(11,14,20,.86);
-      border: 1px solid var(--line);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .wishlist-btn {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: rgba(11,14,20,.8);
-      border: 1px solid var(--line);
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-    }
-
-    .product-body {
-      padding: 18px;
-    }
-
-    .product-category {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: .04em;
-      margin-bottom: 8px;
-    }
-
-    .product-title {
-      font-size: 17px;
-      line-height: 1.35;
-      margin-bottom: 10px;
-      min-height: 46px;
-    }
-
-    .rating {
-      color: var(--primary);
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .price {
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .old-price {
-      color: #7e8aa5;
-      font-size: 14px;
-      text-decoration: line-through;
-    }
-
-    .product-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .btn {
-      min-height: 44px;
-      border-radius: 14px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex: 1;
-    }
-
-    .btn-add {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #111;
-    }
-
-    .btn-view {
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .pagination {
-      margin-top: 24px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .pagination a {
-      min-width: 44px;
-      height: 44px;
-      padding: 0 14px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .pagination a.active,
-    .pagination a:hover {
-      color: #111;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      border-color: transparent;
-    }
-
-    .footer {
-      margin-top: 34px;
-      border-top: 1px solid var(--line);
-      background: #080b11;
-    }
-
-    .footer-top {
-      padding: 40px 0 24px;
-      display: grid;
-      grid-template-columns: 1.3fr repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .footer-brand p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 14px;
-      max-width: 360px;
-    }
-
-    .footer-col h4 {
-      font-size: 16px;
-      margin-bottom: 14px;
-    }
-
-    .footer-links {
-      display: grid;
-      gap: 10px;
-    }
-
-    .footer-links a,
-    .footer-links span {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-links a:hover {
-      color: var(--text);
-    }
-
-    .footer-bottom {
-      min-height: 64px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      color: #8490aa;
-      font-size: 13px;
-      flex-wrap: wrap;
-    }
-
-    .chips {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-    }
-
-    @media (max-width: 1080px) {
-      .catalog-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        position: static;
-      }
-
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-top {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-
-      .footer-brand {
-        grid-column: span 3;
-      }
-    }
-
-    @media (max-width: 960px) {
-      .header-main {
-        grid-template-columns: 1fr auto;
-        padding: 14px 0;
-      }
-
-      .searchbar {
-        grid-column: 1 / -1;
-        order: 3;
-      }
-
-      .nav {
-        display: none;
-      }
-
-      .mobile-toggle {
-        display: inline-flex;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .product-grid,
-      .footer-top {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-brand {
-        grid-column: auto;
-      }
-
-      .page-banner-content {
-        padding: 24px;
-      }
-
-      .catalog-top {
-        align-items: flex-start;
-      }
-
-      .logo {
-        font-size: 20px;
-      }
-
-      .logo-badge {
-        width: 38px;
-        height: 38px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="/Users/bruno/Downloads/popinga/assets/produtos/style.css" />
 </head>
 <body>
 
@@ -758,499 +26,335 @@
         <span>💳 Pix e parcelamento</span>
       </div>
       <div class="topbar-list">
-        <span>⭐ Lançamentos toda semana</span>
+        <span>📦 Catálogo geral POP INGÁ</span>
       </div>
     </div>
   </div>
 
-  <header class="header">
+  <header class="site-header">
     <div class="container">
-      <div class="header-main">
-        <a href="index.html" class="logo">
-          <span class="logo-badge">P</span>
+      <div class="header-inner">
+        <a href="../../index.html" class="logo">
+          <span class="logo-badge"></span>
           <span>POP INGÁ</span>
         </a>
 
         <form class="searchbar" action="funkos.html" method="get">
-          <input
-            type="text"
-            name="busca"
-            placeholder="Busque por personagem, série, anime, game..."
-          />
+          <input type="text" name="busca" placeholder="Buscar Funko, SKU ou personagem..." />
           <button class="search-btn" type="submit">🔎</button>
         </form>
 
         <div class="header-actions">
+          <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
           <a href="contato.html" class="icon-btn" aria-label="Contato">💬</a>
-          <a href="exclusivos.html" class="icon-btn" aria-label="Favoritos">
-            ❤️
-            <span class="badge">2</span>
-          </a>
-          <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+          <a href="../../carrinho.html" class="icon-btn" aria-label="Carrinho">
             🛒
-            <span class="badge">3</span>
+            <span class="cart-count">0</span>
           </a>
-          <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">☰</button>
         </div>
       </div>
 
       <nav class="nav">
         <div class="nav-inner">
-          <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="funkos.html" class="active">Funkos</a>
-            <a href="marvel.html">Marvel</a>
+          <div class="menu">
+            <a href="../../index.html">Home</a>
+            <a href="funkos.html" class="active">Todos</a>
             <a href="dc.html">DC</a>
-            <a href="animes.html">Animes</a>
-            <a href="games.html">Games</a>
+            <a href="marvel.html">Marvel</a>
+            <a href="anime.html">Anime</a>
+            <a href="disney.html">Disney</a>
             <a href="series.html">Séries</a>
-            <a href="exclusivos.html">Exclusivos</a>
-            <a href="ofertas.html">Ofertas</a>
-            <a href="contato.html">Contato</a>
+            <a href="filmes.html">Filmes</a>
+            <a href="games.html">Games</a>
+            <a href="musica.html">Música</a>
+            <a href="star-wars.html">Star Wars</a>
+            <a href="harry-potter.html">Harry Potter</a>
           </div>
 
-          <a href="ofertas.html" class="nav-cta">🔥 Ver ofertas da semana</a>
+          <a href="personalizados.html" class="menu-highlight">
+            Funkos Personalizados
+          </a>
         </div>
       </nav>
-
-      <div class="mobile-menu" id="mobileMenu">
-        <nav>
-          <a href="index.html">Home</a>
-          <a href="funkos.html">Funkos</a>
-          <a href="marvel.html">Marvel</a>
-          <a href="dc.html">DC</a>
-          <a href="animes.html">Animes</a>
-          <a href="games.html">Games</a>
-          <a href="series.html">Séries</a>
-          <a href="exclusivos.html">Exclusivos</a>
-          <a href="ofertas.html">Ofertas</a>
-          <a href="contato.html">Contato</a>
-        </nav>
-      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero-page">
-      <div class="container">
-        <div class="breadcrumb">
-          <a href="index.html">Home</a>
-          <span>/</span>
-          <span>Funkos</span>
-        </div>
+  <main class="catalog-page">
+    <div class="container">
 
-        <div class="page-banner">
-          <div class="page-banner-content">
-            <small>Coleção principal</small>
-            <h1>Funkos para todos os universos</h1>
-            <p>
-              Explore lançamentos, exclusivos, clássicos e peças colecionáveis da POP INGÁ.
-              Uma vitrine organizada para facilitar a navegação e aumentar a conversão.
-            </p>
-          </div>
-        </div>
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <span>Funkos</span>
       </div>
-    </section>
 
-    <section class="catalog-section">
-      <div class="container">
-        <div class="catalog-layout">
-          <aside class="sidebar">
-            <div class="filter-card">
-              <h3>Filtros</h3>
-
-              <div class="filter-group">
-                <strong>Categorias</strong>
-                <div class="filter-list">
-                  <a href="funkos.html" class="active">Todos os Funkos</a>
-                  <a href="marvel.html">Marvel</a>
-                  <a href="dc.html">DC</a>
-                  <a href="animes.html">Animes</a>
-                  <a href="games.html">Games</a>
-                  <a href="series.html">Séries</a>
-                </div>
-              </div>
-
-              <div class="filter-group">
-                <strong>Destaques</strong>
-                <div class="filter-list">
-                  <a href="exclusivos.html">Exclusivos</a>
-                  <a href="ofertas.html">Ofertas</a>
-                  <a href="funkos.html">Lançamentos</a>
-                  <a href="funkos.html">Mais vendidos</a>
-                </div>
-              </div>
-
-              <div class="filter-group">
-                <strong>Faixa de preço</strong>
-                <div class="filter-list">
-                  <a href="#">Até R$ 99</a>
-                  <a href="#">R$ 100 a R$ 149</a>
-                  <a href="#">R$ 150 a R$ 199</a>
-                  <a href="#">Acima de R$ 200</a>
-                </div>
-              </div>
-            </div>
-          </aside>
-
-          <div class="content-area">
-            <div class="catalog-top">
-              <div class="catalog-top-left">
-                <h2>Todos os Funkos</h2>
-                <p>Mostrando uma seleção de produtos em destaque da POP INGÁ.</p>
-              </div>
-
-              <div class="catalog-actions">
-                <div class="results-chip">12 produtos</div>
-
-                <select>
-                  <option>Ordenar por destaque</option>
-                  <option>Menor preço</option>
-                  <option>Maior preço</option>
-                  <option>Mais recentes</option>
-                  <option>Mais vendidos</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="product-grid">
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Mais vendido</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-1.jpg" alt="Funko Batman edição especial" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">DC Comics</div>
-                  <h3 class="product-title">Funko Batman — Edição Especial</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 179,90</span>
-                    <span class="old-price">R$ 219,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="dc.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Lançamento</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-2.jpg" alt="Funko Homem de Ferro" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Marvel</div>
-                  <h3 class="product-title">Funko Homem de Ferro — Armadura Clássica</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 189,90</span>
-                    <span class="old-price">R$ 229,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="marvel.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Coleção</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-3.jpg" alt="Funko Naruto" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Animes</div>
-                  <h3 class="product-title">Funko Naruto — Visual Clássico</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 159,90</span>
-                    <span class="old-price">R$ 199,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="animes.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Exclusivo</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-4.jpg" alt="Funko exclusivo" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Exclusivos</div>
-                  <h3 class="product-title">Funko Exclusivo — Edição Limitada</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 249,90</span>
-                    <span class="old-price">R$ 299,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="exclusivos.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Novo</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-5.jpg" alt="Funko Capitão América" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Marvel</div>
-                  <h3 class="product-title">Funko Capitão América — Nova Edição</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 199,90</span>
-                    <span class="old-price">R$ 239,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="marvel.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Novo</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-6.jpg" alt="Funko anime lendário" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Animes</div>
-                  <h3 class="product-title">Funko Anime — Personagem Lendário</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 169,90</span>
-                    <span class="old-price">R$ 209,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="animes.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Novo</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-7.jpg" alt="Funko de série" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Séries</div>
-                  <h3 class="product-title">Funko Série — Personagem Colecionável</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 174,90</span>
-                    <span class="old-price">R$ 214,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="series.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Novo</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-8.jpg" alt="Funko de game" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Games</div>
-                  <h3 class="product-title">Funko Game — Edição para Coleção</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 179,90</span>
-                    <span class="old-price">R$ 219,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="games.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Oferta</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-9.jpg" alt="Funko de oferta" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Ofertas</div>
-                  <h3 class="product-title">Funko Oferta — Edição Promocional</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 139,90</span>
-                    <span class="old-price">R$ 179,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="ofertas.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Clássico</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-10.jpg" alt="Funko clássico" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Coleção</div>
-                  <h3 class="product-title">Funko Clássico — Peça de Colecionador</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 159,90</span>
-                    <span class="old-price">R$ 199,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="funkos.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Raro</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-11.jpg" alt="Funko raro" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">Exclusivos</div>
-                  <h3 class="product-title">Funko Raro — Edição Especial Premium</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 279,90</span>
-                    <span class="old-price">R$ 329,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="exclusivos.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <div class="product-media">
-                  <span class="product-tag">Destaque</span>
-                  <button class="wishlist-btn">♡</button>
-                  <img src="assets/images/products/product-12.jpg" alt="Funko destaque" />
-                </div>
-                <div class="product-body">
-                  <div class="product-category">POP INGÁ</div>
-                  <h3 class="product-title">Funko Destaque — Escolha da Semana</h3>
-                  <div class="rating">★★★★★</div>
-                  <div class="price-row">
-                    <span class="price">R$ 189,90</span>
-                    <span class="old-price">R$ 229,90</span>
-                  </div>
-                  <div class="product-actions">
-                    <a href="funkos.html" class="btn btn-view">Detalhes</a>
-                    <a href="#" class="btn btn-add">Comprar</a>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="pagination">
-              <a href="#" class="active">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">Próxima</a>
-            </div>
-          </div>
+      <section class="catalog-hero">
+        <div class="catalog-hero-text">
+          <span class="catalog-tag">Catálogo POP INGÁ</span>
+          <h1>Todos os Funkos</h1>
+          <p>
+            Explore nosso catálogo geral com personagens de vários universos.
+            Uma vitrine pensada para consulta rápida, navegação por categoria e compra fácil.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="catalog-toolbar">
+        <div class="catalog-toolbar-left">
+          <strong>Catálogo completo</strong>
+          <span>Seleção inicial de destaques e produtos mais procurados</span>
+        </div>
+
+        <div class="catalog-toolbar-right">
+          <select class="catalog-select">
+            <option>Ordenar por destaque</option>
+            <option>Menor preço</option>
+            <option>Maior preço</option>
+            <option>Mais recentes</option>
+            <option>Nome A-Z</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="catalog-layout">
+
+        <aside class="catalog-sidebar">
+          <div class="catalog-sidebar-card">
+            <h3>Categorias</h3>
+            <a href="dc.html">DC</a>
+            <a href="marvel.html">Marvel</a>
+            <a href="anime.html">Anime</a>
+            <a href="disney.html">Disney</a>
+            <a href="series.html">Séries</a>
+            <a href="filmes.html">Filmes</a>
+            <a href="games.html">Games</a>
+            <a href="musica.html">Música</a>
+            <a href="star-wars.html">Star Wars</a>
+            <a href="harry-potter.html">Harry Potter</a>
+          </div>
+
+          <div class="catalog-sidebar-card">
+            <h3>Destaques</h3>
+            <a href="exclusivos.html">Exclusivos</a>
+            <a href="ofertas.html">Ofertas</a>
+            <a href="personalizados.html">Personalizados</a>
+          </div>
+        </aside>
+
+        <section class="catalog-products">
+
+          <div class="catalog-grid">
+
+            <article class="catalog-card">
+              <div class="catalog-card-image">
+                <img src="../images/funkos/DC/arlequina/72691.jpeg" alt="Funko Arlequina 72691" />
+              </div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-category">DC • Arlequina</span>
+                <h3>Funko Pop Heroes - Harley Quinn</h3>
+                <p class="catalog-card-sku">SKU: 72691</p>
+                <div class="catalog-card-price">R$ 189,90</div>
+                <div class="catalog-card-actions">
+                  <a href="produto-arlequina.html" class="btn btn-view">Detalhes</a>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-buy"
+                    onclick="addToCart({
+                      id:'72691',
+                      name:'Funko Pop Heroes - Harley Quinn',
+                      price:189.90,
+                      image:'../images/funkos/DC/arlequina/72691.jpeg',
+                      category:'DC • Arlequina',
+                      url:'produto-arlequina.html'
+                    })"
+                  >
+                    Comprar
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-card">
+              <div class="catalog-card-image">
+                <img src="../images/funkos/DC/batman/12345.jpeg" alt="Funko Batman 12345" />
+              </div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-category">DC • Batman</span>
+                <h3>Funko Pop Heroes - Batman</h3>
+                <p class="catalog-card-sku">SKU: 12345</p>
+                <div class="catalog-card-price">R$ 179,90</div>
+                <div class="catalog-card-actions">
+                  <a href="produto-batman.html" class="btn btn-view">Detalhes</a>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-buy"
+                    onclick="addToCart({
+                      id:'12345',
+                      name:'Funko Pop Heroes - Batman',
+                      price:179.90,
+                      image:'../images/funkos/DC/batman/12345.jpeg',
+                      category:'DC • Batman',
+                      url:'produto-batman.html'
+                    })"
+                  >
+                    Comprar
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-card">
+              <div class="catalog-card-image">
+                <img src="../images/funkos/MARVEL/homem de ferro/34567.jpeg" alt="Funko Homem de Ferro 34567" />
+              </div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-category">Marvel • Homem de Ferro</span>
+                <h3>Funko Pop Marvel - Iron Man</h3>
+                <p class="catalog-card-sku">SKU: 34567</p>
+                <div class="catalog-card-price">R$ 199,90</div>
+                <div class="catalog-card-actions">
+                  <a href="produto-homem-ferro.html" class="btn btn-view">Detalhes</a>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-buy"
+                    onclick="addToCart({
+                      id:'34567',
+                      name:'Funko Pop Marvel - Iron Man',
+                      price:199.90,
+                      image:'../images/funkos/MARVEL/homem de ferro/34567.jpeg',
+                      category:'Marvel • Homem de Ferro',
+                      url:'produto-homem-ferro.html'
+                    })"
+                  >
+                    Comprar
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-card">
+              <div class="catalog-card-image">
+                <img src="../images/funkos/ANIME/naruto/45678.jpeg" alt="Funko Naruto 45678" />
+              </div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-category">Anime • Naruto</span>
+                <h3>Funko Pop Animation - Naruto Uzumaki</h3>
+                <p class="catalog-card-sku">SKU: 45678</p>
+                <div class="catalog-card-price">R$ 169,90</div>
+                <div class="catalog-card-actions">
+                  <a href="produto-naruto.html" class="btn btn-view">Detalhes</a>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-buy"
+                    onclick="addToCart({
+                      id:'45678',
+                      name:'Funko Pop Animation - Naruto Uzumaki',
+                      price:169.90,
+                      image:'../images/funkos/ANIME/naruto/45678.jpeg',
+                      category:'Anime • Naruto',
+                      url:'produto-naruto.html'
+                    })"
+                  >
+                    Comprar
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-card">
+              <div class="catalog-card-image">
+                <img src="../images/funkos/DISNEY/mickey/67890.jpeg" alt="Funko Mickey 67890" />
+              </div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-category">Disney • Mickey</span>
+                <h3>Funko Pop Disney - Mickey Mouse</h3>
+                <p class="catalog-card-sku">SKU: 67890</p>
+                <div class="catalog-card-price">R$ 159,90</div>
+                <div class="catalog-card-actions">
+                  <a href="produto-mickey.html" class="btn btn-view">Detalhes</a>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-buy"
+                    onclick="addToCart({
+                      id:'67890',
+                      name:'Funko Pop Disney - Mickey Mouse',
+                      price:159.90,
+                      image:'../images/funkos/DISNEY/mickey/67890.jpeg',
+                      category:'Disney • Mickey',
+                      url:'produto-mickey.html'
+                    })"
+                  >
+                    Comprar
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-card">
+              <div class="catalog-card-image">
+                <img src="../images/funkos/GAMES/sonic/78901.jpeg" alt="Funko Sonic 78901" />
+              </div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-category">Games • Sonic</span>
+                <h3>Funko Pop Games - Sonic</h3>
+                <p class="catalog-card-sku">SKU: 78901</p>
+                <div class="catalog-card-price">R$ 174,90</div>
+                <div class="catalog-card-actions">
+                  <a href="produto-sonic.html" class="btn btn-view">Detalhes</a>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-buy"
+                    onclick="addToCart({
+                      id:'78901',
+                      name:'Funko Pop Games - Sonic',
+                      price:174.90,
+                      image:'../images/funkos/GAMES/sonic/78901.jpeg',
+                      category:'Games • Sonic',
+                      url:'produto-sonic.html'
+                    })"
+                  >
+                    Comprar
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+        </section>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <span class="logo-badge">P</span>
-          <span>POP INGÁ</span>
-        </a>
-        <p>
-          Loja geek com foco em Funko Pop! e colecionáveis. Estrutura pensada para vitrine + venda,
-          com visual premium, navegação clara e espaço para crescer.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Categorias</h4>
-        <div class="footer-links">
-          <a href="funkos.html">Funkos</a>
-          <a href="marvel.html">Marvel</a>
-          <a href="dc.html">DC</a>
-          <a href="animes.html">Animes</a>
-          <a href="games.html">Games</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Institucional</h4>
-        <div class="footer-links">
-          <a href="contato.html">Quem somos</a>
-          <a href="contato.html">Política de troca</a>
-          <a href="contato.html">Privacidade</a>
-          <a href="contato.html">Termos de uso</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Atendimento</h4>
-        <div class="footer-links">
-          <a href="contato.html">Central de ajuda</a>
-          <a href="contato.html">Fale conosco</a>
-          <a href="contato.html">WhatsApp</a>
-          <a href="contato.html">Rastrear pedido</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <div class="footer-links">
-          <span>📍 Maringá - PR</span>
-          <span>📞 (44) 99999-9999</span>
-          <span>✉️ contato@popinga.com.br</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <span>© 2026 POP INGÁ. Todos os direitos reservados.</span>
-      <div class="chips">
-        <span class="chip">Pix</span>
-        <span class="chip">Cartão</span>
-        <span class="chip">Parcelamento</span>
-        <span class="chip">Envio nacional</span>
-      </div>
+  <footer class="site-footer">
+    <div class="container">
+      POP INGÁ © 2026<br />
+      Catálogo de Funkos e colecionáveis geek
     </div>
   </footer>
 
+  <script src="../../cart.js"></script>
   <script>
-    const mobileToggle = document.getElementById("mobileToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
+    const themeKey = "popinga_theme";
+    const themeToggle = document.getElementById("themeToggle");
 
-    mobileToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-      mobileToggle.textContent = mobileMenu.classList.contains("open") ? "✕" : "☰";
+    function applyTheme(theme) {
+      if (theme === "light") {
+        document.body.classList.add("light-mode");
+        themeToggle.textContent = "☀️";
+      } else {
+        document.body.classList.remove("light-mode");
+        themeToggle.textContent = "🌙";
+      }
+      localStorage.setItem(themeKey, theme);
+    }
+
+    const savedTheme = localStorage.getItem(themeKey) || "dark";
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const isLight = document.body.classList.contains("light-mode");
+      applyTheme(isLight ? "dark" : "light");
     });
   </script>
 </body>

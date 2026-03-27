@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funkos Personalizados | POP INGÁ</title>
+  <meta
+    name="description"
+    content="Monte seu Funko Personalizado na POP INGÁ. Escolha estilo, cores, acessórios e envie sua ideia direto pelo WhatsApp."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="personalizado.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-list">
+        <span>🎨 Projeto exclusivo</span>
+        <span>🧩 Monte do seu jeito</span>
+        <span>💬 Atendimento via WhatsApp</span>
+      </div>
+      <div class="topbar-list">
+        <span>✨ Funkos Personalizados POP INGÁ</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="../../index.html" class="logo">
+          <span class="logo-badge"></span>
+          <span>POP INGÁ</span>
+        </a>
+
+        <form class="searchbar" action="funkos.html" method="get">
+          <input
+            type="text"
+            name="busca"
+            placeholder="Busque por personagem, série, anime, game..."
+          />
+          <button class="search-btn" type="submit">🔎</button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
+          <a href="contato.html" class="icon-btn" aria-label="Contato">💬</a>
+          <a href="../../carrinho.html" class="icon-btn" aria-label="Carrinho">
+            🛒
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <div class="nav-inner">
+          <div class="menu">
+            <a href="../../index.html">Home</a>
+            <a href="funkos.html">Todos</a>
+            <a href="dc.html">DC</a>
+            <a href="marvel.html">Marvel</a>
+            <a href="anime.html">Anime</a>
+            <a href="disney.html">Disney</a>
+            <a href="series.html">Séries</a>
+            <a href="filmes.html">Filmes</a>
+            <a href="games.html">Games</a>
+          </div>
+
+          <a href="personalizados.html" class="menu-highlight">
+            Funkos Personalizados
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="custom-page">
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <span>Funkos Personalizados</span>
+      </div>
+
+      <section class="custom-hero">
+        <div class="custom-hero-text">
+          <span class="custom-hero-tag">Exclusivo POP INGÁ</span>
+          <h1>Monte seu Funko Personalizado</h1>
+          <p>
+            Envie sua ideia, escolha o estilo e monte um colecionável único.
+            Ideal para presentes, decoração, homenagens ou coleção.
+          </p>
+        </div>
+      </section>
+
+      <section class="custom-builder-layout">
+
+        <section class="custom-builder-card">
+          <div class="builder-header">
+            <h2>Configure seu Funko</h2>
+            <p>Preencha as informações abaixo para montar sua solicitação.</p>
+          </div>
+
+          <form id="customFunkoForm" class="builder-form">
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nomeCliente">Seu nome</label>
+                <input type="text" id="nomeCliente" placeholder="Ex: Bruno Alves" />
+              </div>
+
+              <div class="form-group">
+                <label for="nomePersonagem">Nome do personagem</label>
+                <input type="text" id="nomePersonagem" placeholder="Ex: Bruno versão CEO" />
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="temaFunko">Tema</label>
+                <select id="temaFunko">
+                  <option value="">Selecione</option>
+                  <option>Profissional</option>
+                  <option>Geek</option>
+                  <option>Anime</option>
+                  <option>Herói</option>
+                  <option>Vilão</option>
+                  <option>Casual</option>
+                  <option>Presente romântico</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="corPrincipal">Cor principal</label>
+                <select id="corPrincipal">
+                  <option value="">Selecione</option>
+                  <option>Preto</option>
+                  <option>Branco</option>
+                  <option>Azul</option>
+                  <option>Vermelho</option>
+                  <option>Amarelo</option>
+                  <option>Roxo</option>
+                  <option>Verde</option>
+                  <option>Rosa</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Acessórios desejados</label>
+              <div class="checkbox-grid">
+                <label class="check-card"><input type="checkbox" value="Óculos"> <span>Óculos</span></label>
+                <label class="check-card"><input type="checkbox" value="Boné"> <span>Boné</span></label>
+                <label class="check-card"><input type="checkbox" value="Espada"> <span>Espada</span></label>
+                <label class="check-card"><input type="checkbox" value="Controle de videogame"> <span>Controle</span></label>
+                <label class="check-card"><input type="checkbox" value="Notebook"> <span>Notebook</span></label>
+                <label class="check-card"><input type="checkbox" value="Microfone"> <span>Microfone</span></label>
+                <label class="check-card"><input type="checkbox" value="Capa"> <span>Capa</span></label>
+                <label class="check-card"><input type="checkbox" value="Outro acessório"> <span>Outro</span></label>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="poseFunko">Pose</label>
+                <select id="poseFunko">
+                  <option value="">Selecione</option>
+                  <option>Em pé</option>
+                  <option>Sentado</option>
+                  <option>Com braço levantado</option>
+                  <option>Segurando objeto</option>
+                  <option>Em posição de ação</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="baseFunko">Base / cenário</label>
+                <select id="baseFunko">
+                  <option value="">Selecione</option>
+                  <option>Sem base temática</option>
+                  <option>Base escritório</option>
+                  <option>Base geek</option>
+                  <option>Base cidade</option>
+                  <option>Base mágica</option>
+                  <option>Base personalizada</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="detalhesFunko">Detalhes importantes</label>
+              <textarea
+                id="detalhesFunko"
+                rows="6"
+                placeholder="Descreva roupas, cabelo, expressão, referências, frase na caixa, profissão, estilo ou qualquer detalhe importante."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="prazoFunko">Quando você precisa?</label>
+              <input type="text" id="prazoFunko" placeholder="Ex: presente para o fim do mês" />
+            </div>
+
+            <div class="builder-actions">
+              <button type="button" class="builder-btn primary" id="sendCustomWhats">
+                Enviar projeto no WhatsApp
+              </button>
+
+              <button type="reset" class="builder-btn secondary">
+                Limpar formulário
+              </button>
+            </div>
+
+          </form>
+        </section>
+
+        <aside class="custom-preview-card">
+          <div class="preview-box">
+            <span class="preview-tag">Resumo do projeto</span>
+            <h3>Seu Funko do seu jeito</h3>
+            <p>
+              Após o envio, nossa equipe recebe sua solicitação com todos os detalhes
+              para analisar viabilidade, acabamento e orçamento.
+            </p>
+
+            <ul class="preview-list">
+              <li>✔ Pedido enviado direto para o WhatsApp</li>
+              <li>✔ Mais clareza para orçamento</li>
+              <li>✔ Ideal para presentes e coleções exclusivas</li>
+              <li>✔ Processo simples e rápido</li>
+            </ul>
+          </div>
+
+          <div class="preview-banner">
+            <img src="../popinga/assets/images/personalizado1.png" alt="Funkos personalizados" />
+          </div>
+        </aside>
+
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      POP INGÁ © 2026<br />
+      Funkos personalizados e colecionáveis geek
+    </div>
+  </footer>
+
+  <script src="../../cart.js"></script>
+  <script>
+    const themeKey = "popinga_theme";
+    const themeToggle = document.getElementById("themeToggle");
+
+    function applyTheme(theme) {
+      if (theme === "light") {
+        document.body.classList.add("light-mode");
+        themeToggle.textContent = "☀️";
+      } else {
+        document.body.classList.remove("light-mode");
+        themeToggle.textContent = "🌙";
+      }
+      localStorage.setItem(themeKey, theme);
+    }
+
+    const savedTheme = localStorage.getItem(themeKey) || "dark";
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const isLight = document.body.classList.contains("light-mode");
+      applyTheme(isLight ? "dark" : "light");
+    });
+
+    document.getElementById("sendCustomWhats").addEventListener("click", function () {
+      const nomeCliente = document.getElementById("nomeCliente").value.trim();
+      const nomePersonagem = document.getElementById("nomePersonagem").value.trim();
+      const temaFunko = document.getElementById("temaFunko").value;
+      const corPrincipal = document.getElementById("corPrincipal").value;
+      const poseFunko = document.getElementById("poseFunko").value;
+      const baseFunko = document.getElementById("baseFunko").value;
+      const detalhesFunko = document.getElementById("detalhesFunko").value.trim();
+      const prazoFunko = document.getElementById("prazoFunko").value.trim();
+
+      const acessorios = Array.from(
+        document.querySelectorAll('.checkbox-grid input[type="checkbox"]:checked')
+      ).map(item => item.value);
+
+      let mensagem = "Olá! Quero solicitar um Funko Personalizado na POP INGÁ:%0A%0A";
+
+      if (nomeCliente) mensagem += `*Nome:* ${encodeURIComponent(nomeCliente)}%0A`;
+      if (nomePersonagem) mensagem += `*Personagem / ideia:* ${encodeURIComponent(nomePersonagem)}%0A`;
+      if (temaFunko) mensagem += `*Tema:* ${encodeURIComponent(temaFunko)}%0A`;
+      if (corPrincipal) mensagem += `*Cor principal:* ${encodeURIComponent(corPrincipal)}%0A`;
+      if (acessorios.length) mensagem += `*Acessórios:* ${encodeURIComponent(acessorios.join(", "))}%0A`;
+      if (poseFunko) mensagem += `*Pose:* ${encodeURIComponent(poseFunko)}%0A`;
+      if (baseFunko) mensagem += `*Base / cenário:* ${encodeURIComponent(baseFunko)}%0A`;
+      if (detalhesFunko) mensagem += `*Detalhes:* ${encodeURIComponent(detalhesFunko)}%0A`;
+      if (prazoFunko) mensagem += `*Prazo:* ${encodeURIComponent(prazoFunko)}%0A`;
+
+      mensagem += "%0APode me passar os próximos passos e orçamento?";
+
+      window.open(`https://wa.me/5544991009184?text=${mensagem}`, "_blank");
+    });
+  </script>
+</body>
+</html>
