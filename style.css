@@ -713,7 +713,7 @@ text-align:left;
 
 font-size:13px;
 
-color:#ffd84d;
+color:#ffffff;
 
 display:block;
 
@@ -735,7 +735,7 @@ margin-bottom:12px;
 
 .popshield-text p{
 
-color:#ffe600;
+color:#ffffff;
 
 margin-bottom:20px;
 
@@ -835,7 +835,7 @@ background:rgba(255,255,255,.14);
 
 .popshield{
 padding:70px 0;
-background-position: 60% center ;
+background-position: center ;
 
 }
 
@@ -924,7 +924,7 @@ text-align:right;
 
 font-size:13px;
 
-color:var(--primary);
+color:white;
 
 display:block;
 
@@ -943,6 +943,7 @@ letter-spacing:.08em;
 font-size:36px;
 
 margin-bottom:12px;
+color: white;
 
 line-height:1.1;
 
@@ -952,7 +953,7 @@ line-height:1.1;
 
 .custom-text p{
 
-color:var(--muted);
+color:rgb(255, 255, 255);
 
 margin-bottom:20px;
 
@@ -980,7 +981,7 @@ justify-items:end;
 
 .custom-list li{
 
-color:var(--text);
+color:white;
 
 }
 
@@ -1052,47 +1053,8 @@ background:rgba(255,255,255,.14);
 
 
 
-/* responsivo */
-
-@media(max-height:30px){
- 
-.custom-funko{
-padding:70px 0;
-
-background-position:center;
-height: auto;
-
-}
 
 
-
-
-
-.custom-text{
-
-text-align:center;
-
-}
-
-.custom-list{
-
-justify-items:center;
-
-}
-
-.custom-actions{
-
-justify-content:center;
-
-}
-
-.custom-text h2{
-
-font-size:24px;
-
-}
-
-}
 
 
 /* =======================
@@ -2154,3 +2116,246 @@ body.light-mode .qty-control button{
     justify-content:center;
   }
 }
+
+/* =========================
+MOBILE FIX GERAL
+========================= */
+@media (max-width: 768px){
+
+  .container{
+    width:min(100% - 24px, 1200px);
+  }
+
+  .topbar{
+    display:none;
+  }
+
+  .site-header{
+    position:relative;
+  }
+
+  .header-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    padding:14px 0;
+  }
+
+  .logo{
+    justify-content:center;
+  }
+
+  .logo-img{
+    max-height:42px;
+    width:auto;
+  }
+
+  .searchbar{
+    width:100%;
+    margin:0;
+  }
+
+  .header-actions{
+    justify-content:center;
+  }
+
+  .nav{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .nav-inner{
+    display:block;
+    padding:10px 0;
+  }
+
+  .menu{
+    display:flex;
+    flex-wrap:nowrap;
+    gap:10px;
+    overflow-x:auto;
+    padding-bottom:6px;
+    white-space:nowrap;
+    scrollbar-width:none;
+  }
+
+  .menu::-webkit-scrollbar{
+    display:none;
+  }
+
+  .menu a{
+    flex:0 0 auto;
+    padding:8px 12px;
+    border-radius:999px;
+    background:#0f1420;
+    border:1px solid rgba(255,255,255,.06);
+    font-size:13px;
+  }
+
+  .menu-right{
+    margin-left:0;
+    margin-top:10px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .menu-highlight{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    max-width:260px;
+    text-align:center;
+  }
+
+  .hero{
+    padding:50px 0 34px;
+  }
+
+  .hero-content{
+    max-width:100%;
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:28px;
+    line-height:1.15;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .hero-actions{
+    justify-content:center;
+  }
+
+  .hero-btn{
+    width:100%;
+  }
+
+  .section{
+    padding:38px 0;
+  }
+
+  .section-head{
+    text-align:center;
+  }
+
+  .section-head h2{
+    font-size:22px;
+  }
+
+  .categories-grid{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .category-card{
+    min-height:92px;
+    padding:16px 12px;
+  }
+
+  .category-card strong{
+    font-size:14px;
+  }
+
+  .category-card span{
+    font-size:11px;
+  }
+
+  .products-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .product{
+    width:100%;
+  }
+
+  .product-body{
+    padding:14px;
+  }
+
+  .product-title{
+    min-height:auto;
+    font-size:15px;
+  }
+
+  .product-actions{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+}
+
+/* =========================
+MOBILE FIX PERSONALIZADOS
+========================= */
+@media (max-width: 768px){
+
+  .custom-funko{
+    width: 100%;
+    padding:20px 0;
+    background-position:center;
+    margin-top: 320px;
+    background-image: url("assets/images/personalizado1.png");
+    background-position:center;
+    background-size: 600px;
+
+
+  }
+
+
+  .custom-content{
+    min-height:10px;
+    justify-content:center;
+  }
+
+  .custom-text{
+    max-width:60%;
+    text-align:center;
+    padding:0 6px;
+  }
+
+  .custom-tag{
+    font-size:12px;
+    margin-bottom:8px;
+  }
+
+  .custom-text h2{
+    font-size:28px;
+    line-height:1.12;
+    margin-bottom:10px;
+  }
+
+  .custom-text p{
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:16px;
+  }
+
+  .custom-list{
+    justify-items:center;
+    gap:6px;
+    font-size:13px;
+    margin-bottom:18px;
+  }
+
+  .custom-actions{
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+
+  .custom-btn{
+    width:100%;
+    max-width:260px;
+    min-height:44px;
+    font-size:14px;
+  }
+} 
