@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>POP INGÁ | Loja de Funkos</title>
+  <meta
+    name="description"
+    content="POP INGÁ é sua loja de Funkos e colecionáveis geek. Explore Marvel, DC, Anime, Disney, Séries, Filmes, Games, Star Wars, Harry Potter e muito mais."
+  />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
-
-
 <body>
-
   <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-list">
@@ -28,27 +30,22 @@
 
   <header class="site-header">
     <div class="container">
-
       <div class="header-inner">
-        <a href="index.html" class="logo">
+        <a href="index.html" class="logo" aria-label="POP INGÁ">
+          <img src="assets/images/logo.png" alt="POP INGÁ" class="logo-img" />
+        </a>
 
-         <img 
-           src="assets/images/logo.png" 
-           alt="POP INGÁ"
-           class="logo-img">
-       </a>          
-
-        <form class="searchbar">
-          <input type="text" placeholder="Buscar Funko...">
-          <button class="search-btn" type="submit">🔎</button>
+        <form class="searchbar" action="assets/produtos/funkos.html" method="get">
+          <input type="text" name="busca" placeholder="Buscar Funko..." />
+          <button class="search-btn" type="submit" aria-label="Buscar">🔎</button>
         </form>
 
         <div class="header-actions">
-          <button class="icon-btn" id="theme-toggle" type="button">
+          <button class="icon-btn" id="theme-toggle" type="button" aria-label="Alternar tema">
             🌙
           </button>
 
-          <a href="carrinho.html" class="icon-btn">
+          <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
             🛒
             <span class="cart-count">0</span>
           </a>
@@ -57,7 +54,6 @@
 
       <nav class="nav">
         <div class="nav-inner">
-
           <div class="menu">
             <a href="index.html" class="active">Home</a>
             <a href="assets/produtos/funkos.html">Todos</a>
@@ -76,188 +72,159 @@
           <a href="assets/produtos/ofertas.html" class="nav-cta">
             🔥 Ofertas
           </a>
-
         </div>
       </nav>
-
     </div>
   </header>
 
-<section class="top-slider">
+  <section class="top-slider">
+    <div class="container">
+      <div class="slider-container">
+        <div class="slider-track" id="sliderTrack">
+          <div class="slide">
+            <a href="assets/produtos/ofertas.html">
+              <img src="assets/images/1.png" alt="Promoção Funkos" />
+            </a>
+          </div>
 
-<div class="slider-container">
+          <div class="slide">
+            <a href="assets/produtos/exclusivos.html">
+              <img src="assets/images/2.png" alt="Funkos exclusivos" />
+            </a>
+          </div>
 
-<div class="slider-track" id="sliderTrack">
+          <div class="slide">
+            <a href="assets/produtos/anime.html">
+              <img src="assets/images/3.png" alt="Coleção anime" />
+            </a>
+          </div>
 
+          <div class="slide">
+            <a href="assets/produtos/anime.html">
+              <img src="assets/images/4.png" alt="Coleção anime destaque" />
+            </a>
+          </div>
+        </div>
 
-<div class="slide">
-<a href="assets/produtos/ofertas.html">
-<img src="assets/images/1.png" alt="Promoção Funkos">
-</a>
-</div>
+        <button class="slider-btn prev" type="button" id="prevSlide" aria-label="Slide anterior">❮</button>
+        <button class="slider-btn next" type="button" id="nextSlide" aria-label="Próximo slide">❯</button>
 
+        <div class="slider-dots" id="sliderDots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+          <span class="dot" data-slide="3"></span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="slide">
-<a href="assets/produtos/exclusivos.html">
-<img src="assets/images/2.png" alt="Funkos exclusivos">
-</a>
-</div>
-
-
-<div class="slide">
-<a href="assets/produtos/anime.html">
-<img src="assets/images/3.png" alt="Coleção anime">
-</a>
-</div>
-
-<div class="slide">
-<a href="assets/produtos/anime.html">
-<img src="assets/images/4.png" alt="Coleção anime">
-</a>
-</div>
-
-</div>
-
-
-
-<button class="slider-btn prev" onclick="moveSlide(-1)">
-❮
-</button>
-
-
-<button class="slider-btn next" onclick="moveSlide(1)">
-❯
-</button>
-
-
-
-<div class="slider-dots">
-
-<span class="dot active" onclick="goToSlide(0)"></span>
-<span class="dot" onclick="goToSlide(1)"></span>
-<span class="dot" onclick="goToSlide(2)"></span>
-<span class="dot" onclick="goToSlide(3)"></span>
-
-</div>
-
-
-</div>
-
-</section>
-<br>
   <main>
+    <section class="categories section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Categorias</h2>
+            <p>Escolha seu universo favorito</p>
+          </div>
+        </div>
 
-    <div class="categories-grid">
+        <div class="categories-grid">
+          <a href="assets/produtos/dc.html" class="category-card">
+            <img src="assets/images/icons/batman.png" alt="DC" class="category-icon" />
+            <strong>DC</strong>
+            <span>Batman, Flash...</span>
+          </a>
 
-  <a href="assets/produtos/dc.html" class="category-card">
-    <img src="assets/images/icons/batman.png" alt="Batman" class="category-icon">
-    <strong>DC</strong>
-    <span>Batman, Flash...</span>
-  </a>
+          <a href="assets/produtos/marvel.html" class="category-card">
+            <img src="assets/images/icons/iron-man.png" alt="Marvel" class="category-icon" />
+            <strong>Marvel</strong>
+            <span>Homem de Ferro...</span>
+          </a>
 
-  <a href="assets/produtos/marvel.html" class="category-card">
-    <img src="assets/images/icons/iron-man.png" alt="Homem de Ferro" class="category-icon">
-    <strong>Marvel</strong>
-    <span>Homem de Ferro...</span>
-  </a>
+          <a href="assets/produtos/anime.html" class="category-card">
+            <img src="assets/images/icons/kunai.png" alt="Anime" class="category-icon" />
+            <strong>Anime</strong>
+            <span>Naruto, One Piece...</span>
+          </a>
 
-  <a href="assets/produtos/anime.html" class="category-card">
-    <img src="assets/images/icons/kunai.png" alt="Naruto" class="category-icon">
-    <strong>Anime</strong>
-    <span>Naruto, One Piece...</span>
-  </a>
+          <a href="assets/produtos/disney.html" class="category-card">
+            <img src="assets/images/icons/mickey-mouse.png" alt="Disney" class="category-icon" />
+            <strong>Disney</strong>
+            <span>Toy Story...</span>
+          </a>
 
-  <a href="assets/produtos/disney.html" class="category-card">
-    <img src="assets/images/icons/mickey-mouse.png" alt="Mickey" class="category-icon">
-    <strong>Disney</strong>
-    <span>Toy Story...</span>
-  </a>
+          <a href="assets/produtos/series.html" class="category-card">
+            <img src="assets/images/icons/netflix.png" alt="Séries" class="category-icon" />
+            <strong>Séries</strong>
+            <span>Stranger Things...</span>
+          </a>
 
-  <a href="assets/produtos/series.html" class="category-card">
-    <img src="assets/images/icons/netflix.png" alt="Netflix" class="category-icon">
-    <strong>Séries</strong>
-    <span>Stranger Things...</span>
-  </a>
+          <a href="assets/produtos/filmes.html" class="category-card">
+            <img src="assets/images/icons/popcorn.png" alt="Filmes" class="category-icon" />
+            <strong>Filmes</strong>
+            <span>Jurassic Park...</span>
+          </a>
 
-  <a href="assets/produtos/filmes.html" class="category-card">
-    <img src="assets/images/icons/popcorn.png" alt="Claquete" class="category-icon">
-    <strong>Filmes</strong>
-    <span>Jurassic Park...</span>
-  </a>
+          <a href="assets/produtos/games.html" class="category-card">
+            <img src="assets/images/icons/console.png" alt="Games" class="category-icon" />
+            <strong>Games</strong>
+            <span>Fortnite...</span>
+          </a>
 
-  <a href="assets/produtos/games.html" class="category-card">
-    <img src="assets/images/icons/console.png" alt="Controle" class="category-icon">
-    <strong>Games</strong>
-    <span>Fortnite...</span>
-  </a>
+          <a href="assets/produtos/musica.html" class="category-card">
+            <img src="assets/images/icons/Imagem JPEG-4B07-972E-86-0.jpeg" alt="Música" class="category-icon" />
+            <strong>Música</strong>
+            <span>Queen...</span>
+          </a>
 
-  <a href="assets/produtos/musica.html" class="category-card">
-    <img src="assets/images/icons/Imagem JPEG-4B07-972E-86-0.jpeg" alt="Freddie Mercury" class="category-icon">
-    <strong>Música</strong>
-    <span>Queen...</span>
-  </a>
+          <a href="assets/produtos/star-wars.html" class="category-card">
+            <img src="assets/images/icons/jedi.png" alt="Star Wars" class="category-icon" />
+            <strong>Star Wars</strong>
+            <span>Darth Vader...</span>
+          </a>
 
-  <a href="assets/produtos/star-wars.html" class="category-card">
-    <img src="assets/images/icons/jedi.png" alt="Yoda" class="category-icon">
-    <strong>Star Wars</strong>
-    <span>Darth Vader...</span>
-  </a>
-
-  <a href="assets/produtos/harry-potter.html" class="category-card">
-    <img src="assets/images/icons/people.png" alt="Óculos Harry Potter" class="category-icon">
-    <strong>Harry Potter</strong>
-    <span>Harry, Hermione...</span>
-  </a>
-
-</div>
+          <a href="assets/produtos/harry-potter.html" class="category-card">
+            <img src="assets/images/icons/people.png" alt="Harry Potter" class="category-icon" />
+            <strong>Harry Potter</strong>
+            <span>Harry, Hermione...</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <section class="section">
       <div class="container">
-
         <div class="section-head">
           <div>
-            <h2>
-              Destaques
-            </h2>
-
-            <p>
-              Produtos populares
-            </p>
+            <h2>Destaques</h2>
+            <p>Produtos populares</p>
           </div>
         </div>
 
         <div class="products-grid">
-
           <article class="product">
             <div class="product-image">
-              <img src="assets/images/funkos/DC/BATMAN/102872.1.jpeg" alt="Funko Batman">
+              <img src="images/funkos/DC/BATMAN/102872.1.jpeg" alt="Funko Batman" />
             </div>
 
             <div class="product-body">
-              <div class="product-category">
-                DC
-              </div>
-
-              <h3 class="product-title">
-                Funko Batman
-              </h3>
-
-              <div class="price">
-                R$ 179,90
-              </div>
+              <div class="product-category">DC</div>
+              <h3 class="product-title">Funko Batman</h3>
+              <div class="price">R$ 179,90</div>
 
               <div class="product-actions">
-                <a class="btn btn-view">
-                  Detalhes
-                </a>
+                <a href="assets/produtos/dc.html" class="btn btn-view">Detalhes</a>
 
                 <a
+                  href="javascript:void(0)"
                   class="btn btn-buy"
                   onclick="addToCart({
                     id:'12345',
                     name:'Funko Batman',
                     price:179.90,
-                    image:'assets/images/funkos/DC/BATMAN/102872.1.jpeg'
+                    image:'images/funkos/DC/BATMAN/102872.1.jpeg',
+                    category:'DC • Batman'
                   })"
                 >
                   Comprar
@@ -268,34 +235,26 @@
 
           <article class="product">
             <div class="product-image">
-              <img src="assets/images/funkos/DC/ARLEQUINA/123082.1.jpeg" alt="Funko Arlequina">
+              <img src="images/funkos/DC/ARLEQUINA/123082.1.jpeg" alt="Funko Arlequina" />
             </div>
 
             <div class="product-body">
-              <div class="product-category">
-                DC
-              </div>
-
-              <h3 class="product-title">
-                Funko Arlequina
-              </h3>
-
-              <div class="price">
-                R$ 189,90
-              </div>
+              <div class="product-category">DC</div>
+              <h3 class="product-title">Funko Arlequina</h3>
+              <div class="price">R$ 189,90</div>
 
               <div class="product-actions">
-                <a class="btn btn-view">
-                  Detalhes
-                </a>
+                <a href="assets/produtos/dc.html" class="btn btn-view">Detalhes</a>
 
                 <a
+                  href="javascript:void(0)"
                   class="btn btn-buy"
                   onclick="addToCart({
                     id:'72691',
                     name:'Funko Arlequina',
                     price:189.90,
-                    image:'assets/images/funkos/DC/ARLEQUINA/123082.1.jpeg'
+                    image:'images/funkos/DC/ARLEQUINA/123082.1.jpeg',
+                    category:'DC • Arlequina'
                   })"
                 >
                   Comprar
@@ -306,34 +265,26 @@
 
           <article class="product">
             <div class="product-image">
-              <img src="assets/images/funkos/MARVEL/HOMEM DE FERRO/115049.1.jpeg" alt="Funko Homem de Ferro">
+              <img src="images/funkos/MARVEL/HOMEM DE FERRO/115049.1.jpeg" alt="Funko Homem de Ferro" />
             </div>
 
             <div class="product-body">
-              <div class="product-category">
-                Marvel
-              </div>
-
-              <h3 class="product-title">
-                Funko Homem de Ferro
-              </h3>
-
-              <div class="price">
-                R$ 199,90
-              </div>
+              <div class="product-category">Marvel</div>
+              <h3 class="product-title">Funko Homem de Ferro</h3>
+              <div class="price">R$ 199,90</div>
 
               <div class="product-actions">
-                <a class="btn btn-view">
-                  Detalhes
-                </a>
+                <a href="assets/produtos/marvel.html" class="btn btn-view">Detalhes</a>
 
                 <a
+                  href="javascript:void(0)"
                   class="btn btn-buy"
                   onclick="addToCart({
                     id:'34567',
                     name:'Funko Homem de Ferro',
                     price:199.90,
-                    image:'assets/images/funkos/MARVEL/HOMEM DE FERRO/115049.1.jpeg'
+                    image:'images/funkos/MARVEL/HOMEM DE FERRO/115049.1.jpeg',
+                    category:'Marvel • Homem de Ferro'
                   })"
                 >
                   Comprar
@@ -341,116 +292,81 @@
               </div>
             </div>
           </article>
-
         </div>
-
       </div>
     </section>
 
-   <section class="popshield">
+    <section class="popshield">
+      <div class="popshield-overlay">
+        <div class="container">
+          <div class="popshield-content">
+            <div class="popshield-text">
+              <span class="popshield-tag">PROTEÇÃO PREMIUM</span>
+              <h2>POP SHIELD</h2>
+              <p>
+                Proteção ideal para seus Funkos. Preserve a caixa original
+                contra poeira, riscos e desgaste do tempo.
+              </p>
 
-  <div class="popshield-overlay">
+              <ul class="popshield-list">
+                <li>✔ Proteção transparente</li>
+                <li>✔ Mantém valor de coleção</li>
+                <li>✔ Ajuste perfeito na caixa</li>
+              </ul>
 
-    <div class="container">
+              <div class="popshield-actions">
+                <a href="assets/produtos/popshield.html" class="popshield-btn primary">
+                  Ver produto
+                </a>
 
-      <div class="popshield-content">
-
-        <div class="popshield-text">
-
-          <span class="popshield-tag">
-            PROTEÇÃO PREMIUM
-          </span>
-
-          <h2>
-            POP SHIELD
-          </h2>
-
-          <p>
-            Proteção ideal para seus Funkos. Preserve a caixa original
-            contra poeira, riscos e desgaste do tempo.
-          </p>
-
-          <ul class="popshield-list">
-            <li>✔ Proteção transparente</li>
-            <li>✔ Mantém valor de coleção</li>
-            <li>✔ Ajuste perfeito na caixa</li>
-          </ul>
-
-          <div class="popshield-actions">
-
-            <a href="assets/produtos/popshield.html" class="popshield-btn primary">
-              Ver produto
-            </a>
-
-            <a href="https://wa.me/5544991009184" target="_blank" class="popshield-btn secondary">
-              Comprar pelo WhatsApp
-            </a>
-
+                <a href="https://wa.me/5544991009184" target="_blank" class="popshield-btn secondary">
+                  Comprar pelo WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
-
         </div>
-
       </div>
-
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
     <section class="custom-funko">
+      <div class="custom-overlay">
+        <div class="container">
+          <div class="custom-content">
+            <div class="custom-text">
+              <span class="custom-tag">EXCLUSIVO POP INGÁ</span>
+              <h2>Crie seu Funko Personalizado</h2>
+              <p>
+                Transforme sua ideia em uma peça única. Personalize personagens,
+                presentes e colecionáveis do seu jeito.
+              </p>
 
-  <div class="custom-overlay">
-    <div class="container">
+              <ul class="custom-list">
+                <li>✔ Arte exclusiva</li>
+                <li>✔ Produção sob encomenda</li>
+                <li>✔ Ideal para presente ou coleção</li>
+              </ul>
 
-      <div class="custom-content">
+              <div class="custom-actions">
+                <a href="personalizados.html" class="custom-btn primary">
+                  Quero personalizar
+                </a>
 
-        <div class="custom-text">
-          <span class="custom-tag">EXCLUSIVO POP INGÁ</span>
-
-          <h2>Crie seu Funko Personalizado</h2>
-
-          <p>
-            Transforme sua ideia em uma peça única. Personalize personagens,
-            presentes e colecionáveis do seu jeito.
-          </p>
-
-          <ul class="custom-list">
-            <li>✔ Arte exclusiva</li>
-            <li>✔ Produção sob encomenda</li>
-            <li>✔ Ideal para presente ou coleção</li>
-          </ul>
-
-          <div class="custom-actions">
-            <a href="personalizado.html" class="custom-btn primary">
-              Quero personalizar
-            </a>
-
-            <a href="https://wa.me/5544991009184" class="custom-btn secondary" target="_blank">
-              Falar no WhatsApp
-            </a>
+                <a href="https://wa.me/5544991009184" class="custom-btn secondary" target="_blank">
+                  Falar no WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-
-    </div>
-  </div>
-
-</section>
+    </section>
 
     <section class="finder-form-section">
       <div class="container finder-grid">
-
         <div class="finder-text">
-          <span class="finder-tag">
-            Não encontrou o que procura?
-          </span>
-
-          <h2>
-            Peça seu Funko para a POP INGÁ encontrar
-          </h2>
-
+          <span class="finder-tag">Não encontrou o que procura?</span>
+          <h2>Peça seu Funko para a POP INGÁ encontrar</h2>
           <p>
             Preencha as informações abaixo e nossa equipe vai verificar disponibilidade,
             buscar fornecedores e te retornar com mais detalhes.
@@ -471,58 +387,29 @@
             action="https://formspree.io/f/xreozkbp"
             method="POST"
           >
-
             <div class="finder-field">
               <label for="clienteNome">Seu nome</label>
-              <input
-                type="text"
-                id="clienteNome"
-                name="nome"
-                placeholder="Digite seu nome"
-                required
-              >
+              <input type="text" id="clienteNome" name="nome" placeholder="Digite seu nome" required />
             </div>
 
             <div class="finder-field">
               <label for="clienteWhatsapp">Seu WhatsApp</label>
-              <input
-                type="text"
-                id="clienteWhatsapp"
-                name="whatsapp"
-                placeholder="(44) 991009184"
-                required
-              >
+              <input type="text" id="clienteWhatsapp" name="whatsapp" placeholder="(44) 99100-9184" required />
             </div>
 
             <div class="finder-field">
               <label for="funkoNome">Nome do Funko</label>
-              <input
-                type="text"
-                id="funkoNome"
-                name="funko_nome"
-                placeholder="Ex: Funko Batman"
-                required
-              >
+              <input type="text" id="funkoNome" name="funko_nome" placeholder="Ex: Funko Batman" required />
             </div>
 
             <div class="finder-field">
               <label for="funkoModelo">Modelo / Personagem</label>
-              <input
-                type="text"
-                id="funkoModelo"
-                name="modelo"
-                placeholder="Ex: Batman 1989, Glow, Chase..."
-              >
+              <input type="text" id="funkoModelo" name="modelo" placeholder="Ex: Batman 1989, Glow, Chase..." />
             </div>
 
             <div class="finder-field">
               <label for="funkoSku">SKU</label>
-              <input
-                type="text"
-                id="funkoSku"
-                name="sku"
-                placeholder="Ex: 72691"
-              >
+              <input type="text" id="funkoSku" name="sku" placeholder="Ex: 72691" />
             </div>
 
             <div class="finder-field">
@@ -553,11 +440,7 @@
               ></textarea>
             </div>
 
-            <input
-              type="hidden"
-              name="_subject"
-              value="Novo pedido de Funko - POP INGÁ"
-            >
+            <input type="hidden" name="_subject" value="Novo pedido de Funko - POP INGÁ" />
 
             <button type="submit" class="finder-submit-btn">
               Enviar pedido
@@ -570,192 +453,25 @@
             <p id="finderErrorMessage" class="finder-error-message" style="display:none;">
               Não foi possível enviar agora. Tente novamente em instantes.
             </p>
-
           </form>
         </div>
-
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
+    <section class="banner-full-image">
+      <a href="assets/produtos/exclusivos.html">
+        <img src="assets/images/footer.png" alt="Banner Funkos Exclusivos" />
+      </a>
+    </section>
 
-<section class="banner-full-image">
-
-<a href="assets/produtos/exclusivos.html">
-
-<img 
-src="assets/images/footer.png" 
-alt="Banner Funkos Exclusivos">
-
-</a>
-
-</section>
-    
     <div class="container">
       POP INGÁ © 2026
     </div>
   </footer>
 
   <script src="cart.js"></script>
-
-  <script>
-    const themeToggle = document.getElementById("theme-toggle");
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "light") {
-      document.body.classList.remove("dark-mode");
-      themeToggle.textContent = "🌙";
-    } else {
-      document.body.classList.add("dark-mode");
-      themeToggle.textContent = "☀️";
-    }
-
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const dark = document.body.classList.contains("dark-mode");
-      localStorage.setItem("theme", dark ? "dark" : "light");
-      themeToggle.textContent = dark ? "☀️" : "🌙";
-    });
-  </script>
-
-  <script>
-    const FORM_API_URL = ""
-    const funkoFinderForm = document.getElementById("funkoFinderForm");
-    const finderSuccessMessage = document.getElementById("finderSuccessMessage");
-    const finderErrorMessage = document.getElementById("finderErrorMessage");
-
-    if (funkoFinderForm) {
-      funkoFinderForm.addEventListener("submit", async function (e) {
-        e.preventDefault();
-
-        finderSuccessMessage.style.display = "none";
-        finderErrorMessage.style.display = "none";
-
-        const nome = document.getElementById("clienteNome").value.trim();
-        const whatsapp = document.getElementById("clienteWhatsapp").value.trim();
-        const funkoNome = document.getElementById("funkoNome").value.trim();
-        const modelo = document.getElementById("funkoModelo").value.trim();
-        const sku = document.getElementById("funkoSku").value.trim();
-        const categoria = document.getElementById("funkoCategoria").value.trim();
-        const observacoes = document.getElementById("funkoObs").value.trim();
-
-        const formData = new FormData(funkoFinderForm);
-
-        const whatsappWindow = window.open("", "_blank");
-
-        try {
-          const response = await fetch(funkoFinderForm.action, {
-            method: "POST",
-            body: formData,
-            headers: {
-              "Accept": "application/json"
-            }
-          });
-
-          if (response.ok) {
-            const mensagem =
-`Olá, POP INGÁ! Quero ajuda para encontrar um Funko:
-
-Nome: ${nome}
-WhatsApp: ${whatsapp}
-
-Nome do Funko: ${funkoNome}
-Modelo / Personagem: ${modelo || "-"}
-SKU: ${sku || "-"}
-Categoria: ${categoria}
-Observações: ${observacoes || "-"}`;
-
-            const whatsappUrl = `https://wa.me/5544991009184?text=${encodeURIComponent(mensagem)}`;
-
-            if (whatsappWindow) {
-              whatsappWindow.location.href = whatsappUrl;
-            } else {
-              window.open(whatsappUrl, "_blank");
-            }
-
-            funkoFinderForm.reset();
-            finderSuccessMessage.style.display = "block";
-          } else {
-            if (whatsappWindow) whatsappWindow.close();
-            finderErrorMessage.style.display = "block";
-          }
-        } catch (error) {
-          if (whatsappWindow) whatsappWindow.close();
-          finderErrorMessage.style.display = "block";
-        }
-      });
-    }
-  </script>
-<script>
-
-let currentSlide = 0;
-
-const track =
-document.getElementById("sliderTrack");
-
-const slides =
-document.querySelectorAll(".slide");
-
-const dots =
-document.querySelectorAll(".dot");
-
-
-
-function updateSlider(){
-
-track.style.transform =
-`translateX(-${currentSlide * 100}%)`;
-
-dots.forEach(dot=>dot.classList.remove("active"));
-
-dots[currentSlide].classList.add("active");
-
-}
-
-
-
-function moveSlide(direction){
-
-currentSlide += direction;
-
-if(currentSlide < 0)
-currentSlide = slides.length - 1;
-
-if(currentSlide >= slides.length)
-currentSlide = 0;
-
-updateSlider();
-
-}
-
-
-
-function goToSlide(index){
-
-currentSlide = index;
-
-updateSlider();
-
-}
-
-
-
-setInterval(()=>{
-
-moveSlide(1);
-
-},9000);
-
-
-
-</script>
-
+  <script src="script.js"></script>
 </body>
-
-<footer>
-
-    
-</footer>
 </html>
