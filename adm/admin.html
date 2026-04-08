@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POP INGÁ Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-badge">P</div>
+      <div>
+        <strong>POP INGÁ</strong>
+        <span>Admin</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="active">Pedidos</a>
+      <a href="#">Dashboard</a>
+      <a href="#">Produtos</a>
+      <a href="#">Configurações</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>Painel de pedidos</h1>
+        <p>Gerencie os Funkos solicitados pelos clientes.</p>
+      </div>
+      <button id="reloadBtn" class="reload-btn">Atualizar</button>
+    </header>
+
+    <section class="stats">
+      <div class="stat-card">
+        <span>Total</span>
+        <strong id="statTotal">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Novos</span>
+        <strong id="statNovo">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Buscando</span>
+        <strong id="statBuscando">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Respondidos</span>
+        <strong id="statRespondido">0</strong>
+      </div>
+    </section>
+
+    <section class="filters">
+      <input type="text" id="searchInput" placeholder="Buscar por nome, SKU, funko..." />
+      <select id="categoryFilter">
+        <option value="">Todas as categorias</option>
+        <option value="DC">DC</option>
+        <option value="MARVEL">MARVEL</option>
+        <option value="ANIME">ANIME</option>
+        <option value="DISNEY">DISNEY</option>
+        <option value="SERIES">SERIES</option>
+        <option value="FILMES">FILMES</option>
+        <option value="GAMES">GAMES</option>
+        <option value="MUSICA">MUSICA</option>
+        <option value="STAR WARS">STAR WARS</option>
+        <option value="HARRY POTTER">HARRY POTTER</option>
+        <option value="OUTROS">OUTROS</option>
+      </select>
+
+      <select id="statusFilter">
+        <option value="">Todos os status</option>
+        <option value="NOVO">NOVO</option>
+        <option value="BUSCANDO">BUSCANDO</option>
+        <option value="ENCONTRADO">ENCONTRADO</option>
+        <option value="RESPONDIDO">RESPONDIDO</option>
+      </select>
+    </section>
+
+    <section class="table-wrap">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Cliente</th>
+            <th>WhatsApp</th>
+            <th>Funko</th>
+            <th>Modelo</th>
+            <th>SKU</th>
+            <th>Categoria</th>
+            <th>Observações</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="ordersTableBody">
+          <tr>
+            <td colspan="10" class="loading-cell">Carregando pedidos...</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
