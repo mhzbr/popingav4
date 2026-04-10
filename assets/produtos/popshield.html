@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Categoria | POP INGÁ</title>
-  <meta name="description" content="Categoria de produtos POP INGÁ" />
+  <title>Todos os Funkos | POP INGÁ</title>
+  <meta name="description" content="Catálogo completo POP INGÁ" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
@@ -12,10 +12,10 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../../style.css" />
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="assets/js/products.js"></script>
+  <script src="../../assets/js/products.js"></script>
 </head>
 <body>
   <div class="topbar">
@@ -31,12 +31,12 @@
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
-        <a href="index.html" class="logo" aria-label="POP INGÁ">
-          <img src="assets/images/logo.png" alt="POP INGÁ" class="logo-img" />
+        <a href="../../index.html" class="logo" aria-label="POP INGÁ">
+          <img src="../../assets/images/logo.png" alt="POP INGÁ" class="logo-img" />
         </a>
 
         <form class="searchbar" id="searchForm" action="javascript:void(0);">
-          <input type="text" id="buscaCategoria" placeholder="Buscar nesta categoria..." />
+          <input type="text" id="buscaCatalogo" placeholder="Buscar no catálogo..." />
           <button class="search-btn" type="submit" aria-label="Buscar">🔎</button>
         </form>
 
@@ -45,7 +45,7 @@
             🌙
           </button>
 
-          <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+          <a href="../../carrinho.html" class="icon-btn" aria-label="Carrinho">
             🛒
             <span class="cart-count">0</span>
           </a>
@@ -55,22 +55,22 @@
       <nav class="nav">
         <div class="nav-inner">
           <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="categoria.html" id="menuTodos">Todos</a>
-            <a href="categoria.html?categoria=dc">DC</a>
-            <a href="categoria.html?categoria=marvel">Marvel</a>
-            <a href="categoria.html?categoria=anime">Anime</a>
-            <a href="categoria.html?categoria=disney">Disney</a>
-            <a href="categoria.html?categoria=series">Séries</a>
-            <a href="categoria.html?categoria=filmes">Filmes</a>
-            <a href="categoria.html?categoria=games">Games</a>
-            <a href="categoria.html?categoria=musica">Música</a>
-            <a href="categoria.html?categoria=star-wars">Star Wars</a>
-            <a href="categoria.html?categoria=harry-potter">Harry Potter</a>
+            <a href="../../index.html">Home</a>
+            <a href="funkos.html" class="active">Todos</a>
+            <a href="../../categoria.html?categoria=dc">DC</a>
+            <a href="../../categoria.html?categoria=marvel">Marvel</a>
+            <a href="../../categoria.html?categoria=anime">Anime</a>
+            <a href="../../categoria.html?categoria=disney">Disney</a>
+            <a href="../../categoria.html?categoria=series">Séries</a>
+            <a href="../../categoria.html?categoria=filmes">Filmes</a>
+            <a href="../../categoria.html?categoria=games">Games</a>
+            <a href="../../categoria.html?categoria=musica">Música</a>
+            <a href="../../categoria.html?categoria=star-wars">Star Wars</a>
+            <a href="../../categoria.html?categoria=harry-potter">Harry Potter</a>
           </div>
 
-          <a href="categoria.html" class="nav-cta">
-            🔥 Ver catálogo
+          <a href="funkos.html" class="nav-cta">
+            🔥 Catálogo completo
           </a>
         </div>
       </nav>
@@ -81,17 +81,17 @@
     <section class="section categoria-page">
       <div class="container">
         <div class="categoria-breadcrumb">
-          <a href="index.html">Home</a>
+          <a href="../../index.html">Home</a>
           <span>›</span>
-          <span id="breadcrumbAtual">Categoria</span>
+          <span>Todos os Funkos</span>
         </div>
 
         <div class="categoria-hero">
           <div class="categoria-hero-content">
-            <span class="categoria-tag" id="categoriaTag">POP INGÁ</span>
-            <h1 id="tituloCategoria">Carregando categoria...</h1>
-            <p id="descricaoCategoria">
-              Buscando produtos desta categoria.
+            <span class="categoria-tag">CATÁLOGO COMPLETO</span>
+            <h1>Todos os Funkos</h1>
+            <p>
+              Explore todo o catálogo da POP INGÁ com busca e ordenação.
             </p>
           </div>
 
@@ -117,13 +117,13 @@
 
     <section class="section categoria-grid-section">
       <div class="container">
-        <div id="estadoVazioCategoria" class="categoria-vazio" style="display:none;">
+        <div id="estadoVazioCatalogo" class="categoria-vazio" style="display:none;">
           <h3>Nenhum produto encontrado</h3>
-          <p>Tente buscar outro termo ou voltar para o catálogo completo.</p>
-          <a href="categoria.html" class="btn btn-buy">Ver todos</a>
+          <p>Tente outro termo de busca.</p>
+          <a href="funkos.html" class="btn btn-buy">Ver todos</a>
         </div>
 
-        <div id="gridCategoria" class="products-grid">
+        <div id="gridCatalogo" class="products-grid">
           <article class="product product-loading">
             <div class="product-image"></div>
             <div class="product-body">
@@ -149,14 +149,14 @@
 
   <footer class="site-footer site-footer-rich">
     <section class="banner-full-image">
-      <a href="index.html">
-        <img src="assets/images/footer.png" alt="Banner POP INGÁ" />
+      <a href="../../index.html">
+        <img src="../../assets/images/footer.png" alt="Banner POP INGÁ" />
       </a>
     </section>
 
     <div class="container footer-rich-grid">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="POP INGÁ" class="footer-logo" />
+        <img src="../../assets/images/logo.png" alt="POP INGÁ" class="footer-logo" />
         <p>
           A POP INGÁ é sua loja de colecionáveis geek, com catálogo variado,
           atendimento próximo e projetos personalizados.
@@ -165,24 +165,24 @@
 
       <div class="footer-column">
         <h4>Navegação</h4>
-        <a href="index.html">Home</a>
-        <a href="categoria.html">Todos os produtos</a>
-        <a href="personalizados.html">Personalizados</a>
-        <a href="carrinho.html">Carrinho</a>
+        <a href="../../index.html">Home</a>
+        <a href="funkos.html">Todos os produtos</a>
+        <a href="../../personalizados.html">Personalizados</a>
+        <a href="../../carrinho.html">Carrinho</a>
       </div>
 
       <div class="footer-column">
         <h4>Categorias</h4>
-        <a href="categoria.html?categoria=dc">DC</a>
-        <a href="categoria.html?categoria=marvel">Marvel</a>
-        <a href="categoria.html?categoria=anime">Anime</a>
-        <a href="categoria.html?categoria=games">Games</a>
+        <a href="../../categoria.html?categoria=dc">DC</a>
+        <a href="../../categoria.html?categoria=marvel">Marvel</a>
+        <a href="../../categoria.html?categoria=anime">Anime</a>
+        <a href="../../categoria.html?categoria=games">Games</a>
       </div>
 
       <div class="footer-column">
         <h4>Contato</h4>
         <a href="https://wa.me/5544991009184" target="_blank">WhatsApp</a>
-        <a href="personalizados.html">Projetos personalizados</a>
+        <a href="../../personalizados.html">Projetos personalizados</a>
       </div>
     </div>
 
@@ -192,70 +192,18 @@
     </div>
   </footer>
 
-  <script src="cart.js"></script>
-  <script src="script.js"></script>
+  <script src="../../cart.js"></script>
+  <script src="../../script.js"></script>
 
   <script>
     (function () {
-      const params = new URLSearchParams(window.location.search);
-      const categoriaSlug = params.get("categoria");
-      const buscaInicial = params.get("busca") || "";
-
-      const tituloCategoria = document.getElementById("tituloCategoria");
-      const descricaoCategoria = document.getElementById("descricaoCategoria");
-      const categoriaTag = document.getElementById("categoriaTag");
-      const quantidadeProdutos = document.getElementById("quantidadeProdutos");
-      const gridCategoria = document.getElementById("gridCategoria");
-      const estadoVazio = document.getElementById("estadoVazioCategoria");
-      const buscaInput = document.getElementById("buscaCategoria");
-      const ordenacaoSelect = document.getElementById("ordenacaoProdutos");
-      const breadcrumbAtual = document.getElementById("breadcrumbAtual");
+      const grid = document.getElementById("gridCatalogo");
+      const vazio = document.getElementById("estadoVazioCatalogo");
+      const qtd = document.getElementById("quantidadeProdutos");
+      const busca = document.getElementById("buscaCatalogo");
+      const ordenacao = document.getElementById("ordenacaoProdutos");
 
       let produtosBase = [];
-      let produtosFiltrados = [];
-
-      const mapaCategorias = {
-        "dc": {
-          nome: "DC",
-          descricao: "Explore nossa seleção de personagens icônicos da DC, com opções para fãs e colecionadores."
-        },
-        "marvel": {
-          nome: "Marvel",
-          descricao: "Encontre heróis, vilões e versões especiais do universo Marvel."
-        },
-        "anime": {
-          nome: "Anime",
-          descricao: "Uma seleção de Funkos inspirados nos animes e personagens mais queridos."
-        },
-        "disney": {
-          nome: "Disney",
-          descricao: "Magia, nostalgia e personagens clássicos reunidos em uma coleção especial."
-        },
-        "series": {
-          nome: "Séries",
-          descricao: "Os personagens das séries mais marcantes em versões colecionáveis."
-        },
-        "filmes": {
-          nome: "Filmes",
-          descricao: "Itens inspirados em grandes clássicos e sucessos do cinema."
-        },
-        "games": {
-          nome: "Games",
-          descricao: "Personagens e universos dos games em peças para coleção."
-        },
-        "musica": {
-          nome: "Música",
-          descricao: "Artistas e bandas icônicas em versões Funko Pop para fãs de música."
-        },
-        "star-wars": {
-          nome: "Star Wars",
-          descricao: "A galáxia muito, muito distante reunida em uma seleção especial."
-        },
-        "harry-potter": {
-          nome: "Harry Potter",
-          descricao: "Itens mágicos para fãs do universo de Hogwarts."
-        }
-      };
 
       function escaparHtml(texto) {
         return String(texto || "")
@@ -264,18 +212,6 @@
           .replace(/>/g, "&gt;")
           .replace(/"/g, "&quot;")
           .replace(/'/g, "&#39;");
-      }
-
-      function obterNomeCategoria() {
-        if (!categoriaSlug) return "Todos os produtos";
-        return mapaCategorias[categoriaSlug]?.nome || categoriaSlug;
-      }
-
-      function obterDescricaoCategoria() {
-        if (!categoriaSlug) {
-          return "Veja todo o catálogo da POP INGÁ em uma única página.";
-        }
-        return mapaCategorias[categoriaSlug]?.descricao || "Confira os produtos desta categoria.";
       }
 
       function cardProduto(produto) {
@@ -297,7 +233,7 @@
               <div class="price">R$ ${formatPrice(produto.preco)}</div>
 
               <div class="product-actions">
-                <a href="produto.html?slug=${slug}" class="btn btn-view">Detalhes</a>
+                <a href="../../produto.html?slug=${slug}" class="btn btn-view">Detalhes</a>
                 <a
                   href="https://wa.me/5544991009184?text=${encodeURIComponent(`Olá, tenho interesse no ${produto.nome}`)}"
                   target="_blank"
@@ -311,8 +247,8 @@
         `;
       }
 
-      function aplicarOrdenacao(lista) {
-        const valor = ordenacaoSelect.value;
+      function ordenar(lista) {
+        const valor = ordenacao.value;
 
         if (valor === "menor-preco") {
           return [...lista].sort((a, b) => Number(a.preco) - Number(b.preco));
@@ -329,22 +265,22 @@
         return [...lista].sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
       }
 
-      function renderizarGrid(lista) {
-        quantidadeProdutos.textContent = String(lista.length);
+      function renderizar(lista) {
+        qtd.textContent = String(lista.length);
 
         if (!lista.length) {
-          gridCategoria.style.display = "none";
-          estadoVazio.style.display = "flex";
+          grid.style.display = "none";
+          vazio.style.display = "flex";
           return;
         }
 
-        estadoVazio.style.display = "none";
-        gridCategoria.style.display = "grid";
-        gridCategoria.innerHTML = lista.map(cardProduto).join("");
+        vazio.style.display = "none";
+        grid.style.display = "grid";
+        grid.innerHTML = lista.map(cardProduto).join("");
       }
 
       function aplicarFiltros() {
-        const termo = buscaInput.value.trim().toLowerCase();
+        const termo = busca.value.trim().toLowerCase();
 
         let lista = [...produtosBase];
 
@@ -356,43 +292,24 @@
           );
         }
 
-        produtosFiltrados = aplicarOrdenacao(lista);
-        renderizarGrid(produtosFiltrados);
+        renderizar(ordenar(lista));
       }
 
-      async function carregarCategoria() {
+      async function carregarCatalogo() {
         try {
           const produtos = await getProducts();
-          const nomeCategoria = obterNomeCategoria();
-          const descricao = obterDescricaoCategoria();
-
-          tituloCategoria.textContent = nomeCategoria;
-          descricaoCategoria.textContent = descricao;
-          categoriaTag.textContent = categoriaSlug ? nomeCategoria.toUpperCase() : "CATÁLOGO COMPLETO";
-          breadcrumbAtual.textContent = nomeCategoria;
-
-          if (buscaInicial) {
-            buscaInput.value = buscaInicial;
-          }
-
-          produtosBase = categoriaSlug
-            ? produtos.filter((p) => p.categoria_slug === categoriaSlug)
-            : [...produtos];
-
+          produtosBase = Array.isArray(produtos) ? produtos : [];
           aplicarFiltros();
         } catch (erro) {
           console.error(erro);
-          tituloCategoria.textContent = "Erro ao carregar categoria";
-          descricaoCategoria.textContent = "Não foi possível carregar os produtos agora.";
-          gridCategoria.style.display = "none";
-          estadoVazio.style.display = "flex";
+          renderizar([]);
         }
       }
 
-      buscaInput.addEventListener("input", aplicarFiltros);
-      ordenacaoSelect.addEventListener("change", aplicarFiltros);
+      busca.addEventListener("input", aplicarFiltros);
+      ordenacao.addEventListener("change", aplicarFiltros);
 
-      carregarCategoria();
+      carregarCatalogo();
     })();
   </script>
 
