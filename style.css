@@ -276,13 +276,12 @@ textarea{
 .slide a{
   display:block;
   width:100%;
+  height: 100%;
 }
 
 .slide img{
   width:100%;
-  height:520px;
-  object-fit:contain;
-  background:#0e1422;
+  height:580px;
 }
 
 .slider-btn{
@@ -490,11 +489,6 @@ textarea{
   overflow:hidden;
 }
 
-.popshield-overlay{
-  width:100%;
-  height:100%;
-  background:none;
-}
 
 .popshield-content{
   display:flex;
@@ -1283,7 +1277,7 @@ body.light-mode .popshield-text p,
 body.light-mode .custom-text p,
 body.light-mode .popshield-list li,
 body.light-mode .custom-list li{
-  color:#111827;
+  color:#ffffff;
 }
 
 body.light-mode .categoria-hero p,
@@ -1305,7 +1299,7 @@ body.light-mode .footer-bottom{
 body.light-mode .categoria-meta-card select{
   background:#fff;
   border-color:rgba(17,24,39,.08);
-  color:#111827;
+  color:#ffffff;
 }
 
 body.light-mode .popshield-page-image-card,
@@ -1525,7 +1519,7 @@ body.light-mode .footer-column a:hover{
     flex:0 0 auto;
     padding:8px 12px;
     border-radius:999px;
-    background:#0f1420;
+    background:#ffffff;
     border:1px solid rgba(255,255,255,.06);
     font-size:13px;
   }
@@ -1542,7 +1536,6 @@ body.light-mode .footer-column a:hover{
 
   .slide img{
     height:300px;
-    object-fit:contain;
   }
 
   .slider-btn{
@@ -1583,11 +1576,13 @@ body.light-mode .footer-column a:hover{
   .produto-titulo,
   .popshield-page-info h1{
     font-size:28px;
+    color: white;
   }
 
   .custom-text p,
   .popshield-text p{
     font-size:14px;
+    color: white;
   }
 
   .custom-btn,
