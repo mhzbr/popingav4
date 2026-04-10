@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Produto</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:30px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.produto-img{
+width:100%;
+border-radius:16px;
+}
+
+.preco{
+font-size:28px;
+font-weight:700;
+margin:20px 0;
+}
+
+.botao{
+background:black;
+color:white;
+padding:14px 20px;
+border-radius:10px;
+display:inline-block;
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="container">
+
+<img id="imgProduto" class="produto-img">
+
+<div>
+
+<h1 id="nomeProduto"></h1>
+
+<div class="preco" id="precoProduto"></div>
+
+<p id="descricaoProduto"></p>
+
+<a class="botao" id="btnComprar">
+Comprar
+</a>
+
+</div>
+
+
+</div>
+
+
+
+<script src="assets/js/products.js"></script>
+
+
+<script>
+
+const urlParams = new URLSearchParams(window.location.search)
+
+const slug = urlParams.get("slug")
+
+
+async function loadProduto(){
+
+const produtos = await getProducts()
+
+const produto = produtos.find(p=>p.slug==slug)
+
+
+document.getElementById("imgProduto").src = produto.imagem_url
+
+document.getElementById("nomeProduto").innerText = produto.nome
+
+document.getElementById("precoProduto").innerText =
+"R$ "+formatPrice(produto.preco)
+
+document.getElementById("descricaoProduto").innerText =
+produto.descricao
+
+
+document.getElementById("btnComprar").href =
+"https://wa.me/554499999999?text=Olá quero comprar "+produto.nome
+
+
+}
+
+
+loadProduto()
+
+</script>
+
+
+</body>
+</html>

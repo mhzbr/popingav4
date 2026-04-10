@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Categoria</title>
+
+<link rel="stylesheet" href="assets/css/products.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+
+<body>
+
+
+<h1 id="tituloCategoria"></h1>
+
+<div class="products-grid" id="listaProdutos"></div>
+
+
+<script src="assets/js/products.js"></script>
+
+
+<script>
+
+const urlParams = new URLSearchParams(window.location.search)
+
+const categoria = urlParams.get("cat")
+
+document.getElementById("tituloCategoria").innerText = categoria
+
+
+async function loadCategoria(){
+
+const produtos = await getProducts()
+
+const filtrados = produtos.filter(p=>p.categoria_slug==categoria)
+
+const html = filtrados.map(p=>`
+
+<a href="produto.html?slug=${p.slug}" class="product-card">
+
+<img src="${p.imagem_url}">
+
+<div class="product-info">
+
+<div class="product-category">
+${p.subcategoria}
+</div>
+
+<div class="product-name">
+${p.nome}
+</div>
+
+<div class="product-price">
+R$ ${formatPrice(p.preco)}
+</div>
+
+</div>
+
+</a>
+
+`).join("")
+
+
+document.getElementById("listaProdutos").innerHTML = html
+
+}
+
+
+loadCategoria()
+
+</script>
+
+
+</body>
+</html>

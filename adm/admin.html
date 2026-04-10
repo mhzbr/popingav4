@@ -3,111 +3,348 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>POP INGÁ Admin</title>
+  <title>Admin | POP INGÁ</title>
+  <meta
+    name="description"
+    content="Painel administrativo da POP INGÁ para cadastro, edição e organização de produtos."
+  />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
+
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="admin.css" />
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="brand-badge">P</div>
-      <div>
-        <strong>POP INGÁ</strong>
-        <span>Admin</span>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-list">
+        <span>🛠 Painel administrativo</span>
+        <span>📦 Cadastro de produtos</span>
+        <span>☁️ Integração com Supabase</span>
       </div>
     </div>
+  </div>
 
-    <nav class="sidebar-nav">
-      <a href="#" class="active">Pedidos</a>
-      <a href="#">Dashboard</a>
-      <a href="#">Produtos</a>
-      <a href="#">Configurações</a>
-    </nav>
-  </aside>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="POP INGÁ">
+          <img src="assets/images/logo.png" alt="POP INGÁ" class="logo-img" />
+        </a>
 
-  <main class="main">
-    <header class="topbar">
-      <div>
-        <h1>Painel de pedidos</h1>
-        <p>Gerencie os Funkos solicitados pelos clientes.</p>
-      </div>
-      <button id="reloadBtn" class="reload-btn">Atualizar</button>
-    </header>
+        <form class="searchbar" onsubmit="return false;">
+          <input type="text" placeholder="Painel de cadastro de produtos" />
+          <button class="search-btn" type="button" aria-label="Painel">⚙️</button>
+        </form>
 
-    <section class="stats">
-      <div class="stat-card">
-        <span>Total</span>
-        <strong id="statTotal">0</strong>
+        <div class="header-actions">
+          <button class="icon-btn" id="theme-toggle" type="button" aria-label="Alternar tema">
+            🌙
+          </button>
+
+          <a href="index.html" class="icon-btn" aria-label="Voltar para home">
+            🏠
+          </a>
+        </div>
       </div>
-      <div class="stat-card">
-        <span>Novos</span>
-        <strong id="statNovo">0</strong>
-      </div>
-      <div class="stat-card">
-        <span>Buscando</span>
-        <strong id="statBuscando">0</strong>
-      </div>
-      <div class="stat-card">
-        <span>Respondidos</span>
-        <strong id="statRespondido">0</strong>
+
+      <nav class="nav">
+        <div class="nav-inner">
+          <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="assets/produtos/funkos.html">Catálogo</a>
+            <a href="personalizados.html">Personalizados</a>
+            <a href="admin.html" class="active">Admin</a>
+          </div>
+
+          <a href="carrinho.html" class="nav-cta">
+            🛒 Carrinho
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-hero">
+      <div class="container">
+        <div class="admin-hero-box">
+          <div class="admin-hero-text">
+            <span class="admin-kicker">PAINEL POP INGÁ</span>
+            <h1>Cadastro automático de produtos</h1>
+            <p>
+              Cadastre produtos, envie imagem, visualize o card antes de salvar e
+              publique tudo direto no banco da loja.
+            </p>
+          </div>
+
+          <div class="admin-hero-actions">
+            <a href="#cadastro-produto" class="admin-hero-btn primary">Cadastrar produto</a>
+            <a href="#lista-produtos" class="admin-hero-btn secondary">Ver produtos</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="filters">
-      <input type="text" id="searchInput" placeholder="Buscar por nome, SKU, funko..." />
-      <select id="categoryFilter">
-        <option value="">Todas as categorias</option>
-        <option value="DC">DC</option>
-        <option value="MARVEL">MARVEL</option>
-        <option value="ANIME">ANIME</option>
-        <option value="DISNEY">DISNEY</option>
-        <option value="SERIES">SERIES</option>
-        <option value="FILMES">FILMES</option>
-        <option value="GAMES">GAMES</option>
-        <option value="MUSICA">MUSICA</option>
-        <option value="STAR WARS">STAR WARS</option>
-        <option value="HARRY POTTER">HARRY POTTER</option>
-        <option value="OUTROS">OUTROS</option>
-      </select>
+    <section class="admin-section" id="cadastro-produto">
+      <div class="container">
+        <div class="admin-grid">
+          <section class="admin-panel admin-form-panel">
+            <div class="admin-panel-head">
+              <div>
+                <span class="admin-panel-tag">FORMULÁRIO</span>
+                <h2>Novo produto</h2>
+                <p>
+                  Preencha os dados do item, envie a imagem e salve direto no sistema.
+                </p>
+              </div>
+            </div>
 
-      <select id="statusFilter">
-        <option value="">Todos os status</option>
-        <option value="NOVO">NOVO</option>
-        <option value="BUSCANDO">BUSCANDO</option>
-        <option value="ENCONTRADO">ENCONTRADO</option>
-        <option value="RESPONDIDO">RESPONDIDO</option>
-      </select>
+            <form id="productAdminForm" class="admin-form">
+              <div class="admin-field">
+                <label for="adminId">ID / SKU</label>
+                <input type="text" id="adminId" placeholder="Ex: 102872" required />
+              </div>
+
+              <div class="admin-field">
+                <label for="adminName">Nome do produto</label>
+                <input type="text" id="adminName" placeholder="Ex: Funko Batman 1989" required />
+              </div>
+
+              <div class="admin-field">
+                <label for="adminCategorySlug">Categoria (slug)</label>
+                <select id="adminCategorySlug" required>
+                  <option value="">Selecione</option>
+                  <option value="anime">anime</option>
+                  <option value="dc">dc</option>
+                  <option value="disney">disney</option>
+                  <option value="esportes">esportes</option>
+                  <option value="filmes">filmes</option>
+                  <option value="games">games</option>
+                  <option value="harry-potter">harry-potter</option>
+                  <option value="marvel">marvel</option>
+                  <option value="musica">musica</option>
+                  <option value="outros">outros</option>
+                  <option value="series">series</option>
+                  <option value="star-wars">star-wars</option>
+                  <option value="exclusivos">exclusivos</option>
+                </select>
+              </div>
+
+              <div class="admin-field">
+                <label for="adminCategoryName">Categoria (nome)</label>
+                <input type="text" id="adminCategoryName" placeholder="Ex: DC" required />
+              </div>
+
+              <div class="admin-field">
+                <label for="adminSubcategory">Subcategoria</label>
+                <input type="text" id="adminSubcategory" placeholder="Ex: Batman" required />
+              </div>
+
+              <div class="admin-field">
+                <label for="adminPrice">Preço</label>
+                <input type="number" id="adminPrice" step="0.01" placeholder="199.90" required />
+              </div>
+
+              <div class="admin-field admin-field-full">
+                <label for="adminImageFile">Imagem do produto</label>
+                <input type="file" id="adminImageFile" accept="image/*" />
+              </div>
+
+              <div class="admin-field admin-field-full">
+                <label for="adminImage">URL da imagem</label>
+                <input
+                  type="text"
+                  id="adminImage"
+                  placeholder="Será preenchido automaticamente após upload"
+                  readonly
+                />
+              </div>
+
+              <div class="admin-field admin-field-full">
+                <label for="adminDescription">Descrição</label>
+                <textarea
+                  id="adminDescription"
+                  rows="5"
+                  placeholder="Descreva o produto de forma simples e clara."
+                ></textarea>
+              </div>
+
+              <div class="admin-field">
+                <label for="adminFeatured">Destaque</label>
+                <select id="adminFeatured">
+                  <option value="false">false</option>
+                  <option value="true">true</option>
+                </select>
+              </div>
+
+              <div class="admin-field">
+                <label for="adminSlug">Slug gerado</label>
+                <input type="text" id="adminSlug" placeholder="Gerado automaticamente" readonly />
+              </div>
+
+              <div class="admin-actions admin-field-full">
+                <button type="button" class="admin-action-btn neutral" id="generateProductBtn">
+                  Gerar produto
+                </button>
+
+                <button type="button" class="admin-action-btn primary" id="addProductBtn">
+                  Salvar no sistema
+                </button>
+
+                <button type="button" class="admin-action-btn ghost" id="clearProductBtn">
+                  Limpar
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <aside class="admin-panel admin-preview-panel">
+            <div class="admin-panel-head">
+              <div>
+                <span class="admin-panel-tag">PREVIEW</span>
+                <h2>Visual do produto</h2>
+                <p>Confira rapidamente como o item vai aparecer em card.</p>
+              </div>
+            </div>
+
+            <div class="admin-preview-wrap">
+              <article class="admin-product-preview">
+                <div class="admin-product-preview-image">
+                  <img
+                    id="adminPreviewImage"
+                    src="assets/images/logo.png"
+                    alt="Preview do produto"
+                  />
+                </div>
+
+                <div class="admin-product-preview-body">
+                  <span class="admin-product-preview-category" id="adminPreviewCategory">
+                    Categoria
+                  </span>
+
+                  <h3 id="adminPreviewName">Nome do produto</h3>
+
+                  <div class="admin-product-preview-price" id="adminPreviewPrice">
+                    R$ 0,00
+                  </div>
+
+                  <p id="adminPreviewDescription">
+                    Descrição do produto.
+                  </p>
+                </div>
+              </article>
+
+              <div class="admin-preview-note">
+                <strong>Dica:</strong>
+                ao escolher a categoria, o sistema preenche automaticamente o nome da
+                categoria e sugere uma subcategoria inicial.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
     </section>
 
-    <section class="table-wrap">
-      <table class="orders-table">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Cliente</th>
-            <th>WhatsApp</th>
-            <th>Funko</th>
-            <th>Modelo</th>
-            <th>SKU</th>
-            <th>Categoria</th>
-            <th>Observações</th>
-            <th>Status</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody id="ordersTableBody">
-          <tr>
-            <td colspan="10" class="loading-cell">Carregando pedidos...</td>
-          </tr>
-        </tbody>
-      </table>
+    <section class="admin-section admin-section-compact">
+      <div class="container">
+        <div class="admin-json-grid">
+          <section class="admin-panel">
+            <div class="admin-panel-head admin-panel-head-inline">
+              <div>
+                <span class="admin-panel-tag">JSON ATUAL</span>
+                <h2>Produto gerado</h2>
+              </div>
+
+              <div class="admin-inline-actions">
+                <button type="button" class="admin-action-btn ghost" id="copyCurrentJsonBtn">
+                  Copiar
+                </button>
+              </div>
+            </div>
+
+            <textarea id="adminCurrentJson" class="admin-codebox" readonly></textarea>
+          </section>
+
+          <section class="admin-panel">
+            <div class="admin-panel-head admin-panel-head-inline">
+              <div>
+                <span class="admin-panel-tag">LISTA JSON</span>
+                <h2>Produtos cadastrados</h2>
+              </div>
+
+              <div class="admin-inline-actions">
+                <button type="button" class="admin-action-btn ghost" id="copyAllJsonBtn">
+                  Copiar tudo
+                </button>
+                <button type="button" class="admin-action-btn primary" id="downloadAllJsonBtn">
+                  Baixar JSON
+                </button>
+                <button type="button" class="admin-action-btn ghost" id="clearAllProductsBtn">
+                  Limpar lista
+                </button>
+              </div>
+            </div>
+
+            <textarea id="adminAllJson" class="admin-codebox" readonly></textarea>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-section" id="lista-produtos">
+      <div class="container">
+        <section class="admin-panel">
+          <div class="admin-panel-head admin-panel-head-inline">
+            <div>
+              <span class="admin-panel-tag">LISTAGEM</span>
+              <h2>Produtos cadastrados</h2>
+              <p>Edite, copie ou remova os itens já salvos no banco.</p>
+            </div>
+          </div>
+
+          <div id="adminProductsList" class="admin-products-list"></div>
+        </section>
+      </div>
     </section>
   </main>
 
+  <footer class="site-footer admin-footer">
+    <div class="container admin-footer-grid">
+      <div class="admin-footer-brand">
+        <img src="assets/images/logo.png" alt="POP INGÁ" class="footer-logo" />
+        <p>
+          Painel administrativo conectado ao banco da POP INGÁ para cadastro e gestão
+          de produtos em tempo real.
+        </p>
+      </div>
+
+      <div class="admin-footer-links">
+        <h4>Atalhos</h4>
+        <a href="index.html">Home</a>
+        <a href="assets/produtos/funkos.html">Catálogo</a>
+        <a href="personalizados.html">Personalizados</a>
+      </div>
+
+      <div class="admin-footer-links">
+        <h4>Ações rápidas</h4>
+        <a href="#" id="footerCopyJson">Copiar lista JSON</a>
+        <a href="#" id="footerDownloadJson">Baixar JSON</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>POP INGÁ © 2026</span>
+      <span>Painel administrativo conectado</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>

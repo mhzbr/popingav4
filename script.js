@@ -1,45 +1,40 @@
-document.addEventListener("DOMContentLoaded", () => {
-  initThemeToggle();
-  initSlider();
-  initFunkoFinderForm();
-});
-
-function initThemeToggle() {
+(function () {
+  const body = document.body;
   const themeToggle = document.getElementById("theme-toggle");
-  if (!themeToggle) return;
 
-  const themeKey = "popinga_theme";
-  const savedTheme = localStorage.getItem(themeKey) || "dark";
-
-  function applyTheme(theme) {
-    if (theme === "light") {
-      document.body.classList.add("light-mode");
-      themeToggle.textContent = "☀️";
+  function setTheme(mode) {
+    if (mode === "light") {
+      body.classList.add("light-mode");
+      if (themeToggle) themeToggle.textContent = "☀️";
+      localStorage.setItem("theme", "light");
     } else {
-      document.body.classList.remove("light-mode");
-      themeToggle.textContent = "🌙";
+      body.classList.remove("light-mode");
+      if (themeToggle) themeToggle.textContent = "🌙";
+      localStorage.setItem("theme", "dark");
     }
-
-    localStorage.setItem(themeKey, theme);
   }
 
-  applyTheme(savedTheme);
+  const savedTheme = localStorage.getItem("theme");
+  setTheme(savedTheme === "light" ? "light" : "dark");
 
-  themeToggle.addEventListener("click", () => {
-    const isLight = document.body.classList.contains("light-mode");
-    applyTheme(isLight ? "dark" : "light");
-  });
-}
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isLight = body.classList.contains("light-mode");
+      setTheme(isLight ? "dark" : "light");
+    });
+  }
+})();
 
-function initSlider() {
+(function () {
   const track = document.getElementById("sliderTrack");
-  const slides = document.querySelectorAll(".slide");
-  const dots = document.querySelectorAll(".dot");
   const prevBtn = document.getElementById("prevSlide");
   const nextBtn = document.getElementById("nextSlide");
+  const dotsContainer = document.getElementById("sliderDots");
 
-  if (!track || !slides.length || !prevBtn || !nextBtn) return;
+  if (!track) return;
 
+  const slides = Array.from(track.querySelectorAll(".slide"));
+  const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll(".dot")) : [];
   let currentSlide = 0;
   let autoSlide = null;
 
@@ -53,44 +48,44 @@ function initSlider() {
 
   function goToSlide(index) {
     currentSlide = index;
-
     if (currentSlide < 0) currentSlide = slides.length - 1;
     if (currentSlide >= slides.length) currentSlide = 0;
-
     updateSlider();
   }
 
-  function moveSlide(direction) {
-    goToSlide(currentSlide + direction);
+  function nextSlide() {
+    goToSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentSlide - 1);
   }
 
   function startAutoSlide() {
     stopAutoSlide();
-    autoSlide = setInterval(() => {
-      moveSlide(1);
-    }, 5000);
+    autoSlide = setInterval(nextSlide, 5000);
   }
 
   function stopAutoSlide() {
-    if (autoSlide) {
-      clearInterval(autoSlide);
-      autoSlide = null;
-    }
+    if (autoSlide) clearInterval(autoSlide);
   }
 
-  prevBtn.addEventListener("click", () => {
-    moveSlide(-1);
-    startAutoSlide();
-  });
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      startAutoSlide();
+    });
+  }
 
-  nextBtn.addEventListener("click", () => {
-    moveSlide(1);
-    startAutoSlide();
-  });
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      startAutoSlide();
+    });
+  }
 
-  dots.forEach((dot) => {
+  dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
-      const index = Number(dot.dataset.slide);
       goToSlide(index);
       startAutoSlide();
     });
@@ -98,34 +93,25 @@ function initSlider() {
 
   updateSlider();
   startAutoSlide();
-}
+})();
 
-function initFunkoFinderForm() {
-  const funkoFinderForm = document.getElementById("funkoFinderForm");
-  const finderSuccessMessage = document.getElementById("finderSuccessMessage");
-  const finderErrorMessage = document.getElementById("finderErrorMessage");
+(function () {
+  const form = document.getElementById("funkoFinderForm");
+  if (!form) return;
 
-  if (!funkoFinderForm) return;
+  const success = document.getElementById("finderSuccessMessage");
+  const error = document.getElementById("finderErrorMessage");
 
-  funkoFinderForm.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    if (finderSuccessMessage) finderSuccessMessage.style.display = "none";
-    if (finderErrorMessage) finderErrorMessage.style.display = "none";
+    if (success) success.style.display = "none";
+    if (error) error.style.display = "none";
 
-    const nome = document.getElementById("clienteNome")?.value.trim() || "";
-    const whatsapp = document.getElementById("clienteWhatsapp")?.value.trim() || "";
-    const funkoNome = document.getElementById("funkoNome")?.value.trim() || "";
-    const modelo = document.getElementById("funkoModelo")?.value.trim() || "";
-    const sku = document.getElementById("funkoSku")?.value.trim() || "";
-    const categoria = document.getElementById("funkoCategoria")?.value.trim() || "";
-    const observacoes = document.getElementById("funkoObs")?.value.trim() || "";
-
-    const formData = new FormData(funkoFinderForm);
-    const whatsappWindow = window.open("", "_blank");
+    const formData = new FormData(form);
 
     try {
-      const response = await fetch(funkoFinderForm.action, {
+      const response = await fetch(form.action, {
         method: "POST",
         body: formData,
         headers: {
@@ -133,39 +119,105 @@ function initFunkoFinderForm() {
         }
       });
 
-      if (response.ok) {
-        const mensagem =
-`Olá, POP INGÁ! Quero ajuda para encontrar um Funko:
+      if (!response.ok) throw new Error("Falha ao enviar");
 
-Nome: ${nome}
-WhatsApp: ${whatsapp}
-
-Nome do Funko: ${funkoNome}
-Modelo / Personagem: ${modelo || "-"}
-SKU: ${sku || "-"}
-Categoria: ${categoria}
-Observações: ${observacoes || "-"}`;
-
-        const whatsappUrl = `https://wa.me/5544991009184?text=${encodeURIComponent(mensagem)}`;
-
-        if (whatsappWindow) {
-          whatsappWindow.location.href = whatsappUrl;
-        } else {
-          window.open(whatsappUrl, "_blank");
-        }
-
-        funkoFinderForm.reset();
-
-        if (finderSuccessMessage) {
-          finderSuccessMessage.style.display = "block";
-        }
-      } else {
-        if (whatsappWindow) whatsappWindow.close();
-        if (finderErrorMessage) finderErrorMessage.style.display = "block";
-      }
-    } catch (error) {
-      if (whatsappWindow) whatsappWindow.close();
-      if (finderErrorMessage) finderErrorMessage.style.display = "block";
+      if (success) success.style.display = "block";
+      form.reset();
+    } catch (err) {
+      if (error) error.style.display = "block";
+      console.error(err);
     }
   });
-}
+})();
+
+(function () {
+  const busca = document.getElementById("busca");
+  const grid = document.getElementById("grid-destaques");
+  if (!busca || !grid || typeof getProducts !== "function") return;
+
+  let cacheProdutos = [];
+
+  function escaparHtml(texto) {
+    return String(texto || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function renderizarProdutos(lista) {
+    if (!lista.length) {
+      grid.innerHTML = `
+        <article class="product">
+          <div class="product-body">
+            <h3 class="product-title">Nenhum produto encontrado.</h3>
+          </div>
+        </article>
+      `;
+      return;
+    }
+
+    grid.innerHTML = lista
+      .map((p) => {
+        const nome = escaparHtml(p.nome);
+        const categoria = escaparHtml(p.categoria_nome || "");
+        const imagem = escaparHtml(p.imagem_url || "");
+        const slug = escaparHtml(p.slug || "");
+
+        return `
+          <article class="product">
+            <div class="product-image">
+              <img src="${imagem}" alt="${nome}" loading="lazy" />
+            </div>
+
+            <div class="product-body">
+              <div class="product-category">${categoria}</div>
+              <h3 class="product-title">${nome}</h3>
+              <div class="price">R$ ${formatPrice(p.preco)}</div>
+
+              <div class="product-actions">
+                <a href="produto.html?slug=${slug}" class="btn btn-view">Detalhes</a>
+                <a
+                  href="https://wa.me/5544991009184?text=${encodeURIComponent(`Olá, tenho interesse no ${p.nome}`)}"
+                  target="_blank"
+                  class="btn btn-buy"
+                >
+                  Comprar
+                </a>
+              </div>
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+  }
+
+  async function carregarProdutosHome() {
+    try {
+      const produtos = await getProducts();
+      cacheProdutos = Array.isArray(produtos) ? produtos : [];
+      renderizarProdutos(cacheProdutos.slice(0, 6));
+    } catch (err) {
+      console.error(err);
+      renderizarProdutos([]);
+    }
+  }
+
+  busca.addEventListener("input", () => {
+    const termo = busca.value.trim().toLowerCase();
+
+    if (!termo) {
+      renderizarProdutos(cacheProdutos.slice(0, 6));
+      return;
+    }
+
+    const filtrados = cacheProdutos.filter((p) =>
+      String(p.nome || "").toLowerCase().includes(termo)
+    );
+
+    renderizarProdutos(filtrados);
+  });
+
+  carregarProdutosHome();
+})();

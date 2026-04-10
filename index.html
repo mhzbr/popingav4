@@ -16,6 +16,9 @@
   />
 
   <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/products.js"></script>
 </head>
 <body>
   <div class="topbar">
@@ -35,8 +38,8 @@
           <img src="assets/images/logo.png" alt="POP INGÁ" class="logo-img" />
         </a>
 
-        <form class="searchbar" action="assets/produtos/funkos.html" method="get">
-          <input type="text" name="busca" placeholder="Buscar Funko..." />
+        <form class="searchbar" id="searchForm" action="javascript:void(0);">
+          <input type="text" id="busca" name="busca" placeholder="Buscar Funko..." />
           <button class="search-btn" type="submit" aria-label="Buscar">🔎</button>
         </form>
 
@@ -95,13 +98,13 @@
 
           <div class="slide">
             <a href="assets/produtos/anime.html">
-              <img src="assets/images/3.png" alt="Coleção anime" />
+              <img src="assets/images/3.png" alt="Coleção Anime" />
             </a>
           </div>
 
           <div class="slide">
             <a href="personalizados.html">
-              <img src="assets/images/4.png" alt="Funkos personalizados" />
+              <img src="assets/images/4.png" alt="Funkos Personalizados" />
             </a>
           </div>
         </div>
@@ -202,94 +205,23 @@
           </div>
         </div>
 
-        <div class="products-grid">
-          <article class="product">
-            <div class="product-image">
-              <img src="images/funkos/DC/BATMAN/102872.1.jpeg" alt="Funko Batman" />
-            </div>
-
+        <div class="products-grid" id="grid-destaques">
+          <article class="product product-loading">
+            <div class="product-image"></div>
             <div class="product-body">
-              <div class="product-category">DC</div>
-              <h3 class="product-title">Funko Batman</h3>
-              <div class="price">R$ 179,90</div>
-
-              <div class="product-actions">
-                <a href="assets/produtos/dc.html" class="btn btn-view">Detalhes</a>
-
-                <a
-                  href="javascript:void(0)"
-                  class="btn btn-buy"
-                  onclick="addToCart({
-                    id:'12345',
-                    name:'Funko Batman',
-                    price:179.90,
-                    image:'images/funkos/DC/BATMAN/102872.1.jpeg',
-                    category:'DC • Batman'
-                  })"
-                >
-                  Comprar
-                </a>
-              </div>
+              <div class="product-title">Carregando...</div>
             </div>
           </article>
-
-          <article class="product">
-            <div class="product-image">
-              <img src="images/funkos/DC/ARLEQUINA/123082.1.jpeg" alt="Funko Arlequina" />
-            </div>
-
+          <article class="product product-loading">
+            <div class="product-image"></div>
             <div class="product-body">
-              <div class="product-category">DC</div>
-              <h3 class="product-title">Funko Arlequina</h3>
-              <div class="price">R$ 189,90</div>
-
-              <div class="product-actions">
-                <a href="assets/produtos/dc.html" class="btn btn-view">Detalhes</a>
-
-                <a
-                  href="javascript:void(0)"
-                  class="btn btn-buy"
-                  onclick="addToCart({
-                    id:'72691',
-                    name:'Funko Arlequina',
-                    price:189.90,
-                    image:'images/funkos/DC/ARLEQUINA/123082.1.jpeg',
-                    category:'DC • Arlequina'
-                  })"
-                >
-                  Comprar
-                </a>
-              </div>
+              <div class="product-title">Carregando...</div>
             </div>
           </article>
-
-          <article class="product">
-            <div class="product-image">
-              <img src="images/funkos/MARVEL/HOMEM DE FERRO/115049.1.jpeg" alt="Funko Homem de Ferro" />
-            </div>
-
+          <article class="product product-loading">
+            <div class="product-image"></div>
             <div class="product-body">
-              <div class="product-category">Marvel</div>
-              <h3 class="product-title">Funko Homem de Ferro</h3>
-              <div class="price">R$ 199,90</div>
-
-              <div class="product-actions">
-                <a href="assets/produtos/marvel.html" class="btn btn-view">Detalhes</a>
-
-                <a
-                  href="javascript:void(0)"
-                  class="btn btn-buy"
-                  onclick="addToCart({
-                    id:'34567',
-                    name:'Funko Homem de Ferro',
-                    price:199.90,
-                    image:'images/funkos/MARVEL/HOMEM DE FERRO/115049.1.jpeg',
-                    category:'Marvel • Homem de Ferro'
-                  })"
-                >
-                  Comprar
-                </a>
-              </div>
+              <div class="product-title">Carregando...</div>
             </div>
           </article>
         </div>
@@ -360,6 +292,12 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="banner-full-image">
+      <a href="assets/produtos/funkos.html">
+        <img src="assets/images/banner-busca.png" alt="Banner busca Funko" />
+      </a>
     </section>
 
     <section class="finder-form-section">
@@ -500,7 +438,7 @@
     </div>
 
     <div class="container footer-bottom">
-      <span>POP INGÁ © 2026</span>
+      <span>POP INGÁ ©️ 2026</span>
       <span>Colecionáveis Geek & Personalizados</span>
     </div>
   </footer>
