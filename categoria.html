@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categoria | POP INGÁ</title>
+  <meta name="description" content="Categoria de produtos POP INGÁ" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/products.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-list">
+        <span>🚚 Envio para todo Brasil</span>
+        <span>⭐ Produtos originais</span>
+        <span>💳 Pix e parcelamento</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="POP INGÁ">
+          <img src="assets/images/logo.png" alt="POP INGÁ" class="logo-img" />
+        </a>
+
+        <form class="searchbar" id="searchForm" action="javascript:void(0);">
+          <input type="text" id="buscaCategoria" placeholder="Buscar nesta categoria..." />
+          <button class="search-btn" type="submit" aria-label="Buscar">🔎</button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-btn" id="theme-toggle" type="button" aria-label="Alternar tema">
+            🌙
+          </button>
+
+          <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+            🛒
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <div class="nav-inner">
+          <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="categoria.html" id="menuTodos">Todos</a>
+            <a href="categoria.html?categoria=dc">DC</a>
+            <a href="categoria.html?categoria=marvel">Marvel</a>
+            <a href="categoria.html?categoria=anime">Anime</a>
+            <a href="categoria.html?categoria=disney">Disney</a>
+            <a href="categoria.html?categoria=series">Séries</a>
+            <a href="categoria.html?categoria=filmes">Filmes</a>
+            <a href="categoria.html?categoria=games">Games</a>
+            <a href="categoria.html?categoria=musica">Música</a>
+            <a href="categoria.html?categoria=star-wars">Star Wars</a>
+            <a href="categoria.html?categoria=harry-potter">Harry Potter</a>
+          </div>
+
+          <a href="categoria.html" class="nav-cta">
+            🔥 Ver catálogo
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section categoria-page">
+      <div class="container">
+        <div class="categoria-breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <span id="breadcrumbAtual">Categoria</span>
+        </div>
+
+        <div class="categoria-hero">
+          <div class="categoria-hero-content">
+            <span class="categoria-tag" id="categoriaTag">POP INGÁ</span>
+            <h1 id="tituloCategoria">Carregando categoria...</h1>
+            <p id="descricaoCategoria">
+              Buscando produtos desta categoria.
+            </p>
+          </div>
+
+          <div class="categoria-hero-meta">
+            <div class="categoria-meta-card">
+              <strong id="quantidadeProdutos">0</strong>
+              <span>produtos encontrados</span>
+            </div>
+
+            <div class="categoria-meta-card">
+              <label for="ordenacaoProdutos">Ordenar por</label>
+              <select id="ordenacaoProdutos">
+                <option value="recentes">Mais recentes</option>
+                <option value="menor-preco">Menor preço</option>
+                <option value="maior-preco">Maior preço</option>
+                <option value="nome">Nome</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section categoria-grid-section">
+      <div class="container">
+        <div id="estadoVazioCategoria" class="categoria-vazio" style="display:none;">
+          <h3>Nenhum produto encontrado</h3>
+          <p>Tente buscar outro termo ou voltar para o catálogo completo.</p>
+          <a href="categoria.html" class="btn btn-buy">Ver todos</a>
+        </div>
+
+        <div id="gridCategoria" class="products-grid">
+          <article class="product product-loading">
+            <div class="product-image"></div>
+            <div class="product-body">
+              <div class="product-title">Carregando...</div>
+            </div>
+          </article>
+          <article class="product product-loading">
+            <div class="product-image"></div>
+            <div class="product-body">
+              <div class="product-title">Carregando...</div>
+            </div>
+          </article>
+          <article class="product product-loading">
+            <div class="product-image"></div>
+            <div class="product-body">
+              <div class="product-title">Carregando...</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer site-footer-rich">
+    <section class="banner-full-image">
+      <a href="index.html">
+        <img src="assets/images/footer.png" alt="Banner POP INGÁ" />
+      </a>
+    </section>
+
+    <div class="container footer-rich-grid">
+      <div class="footer-brand">
+        <img src="assets/images/logo.png" alt="POP INGÁ" class="footer-logo" />
+        <p>
+          A POP INGÁ é sua loja de colecionáveis geek, com catálogo variado,
+          atendimento próximo e projetos personalizados.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Navegação</h4>
+        <a href="index.html">Home</a>
+        <a href="categoria.html">Todos os produtos</a>
+        <a href="personalizados.html">Personalizados</a>
+        <a href="carrinho.html">Carrinho</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Categorias</h4>
+        <a href="categoria.html?categoria=dc">DC</a>
+        <a href="categoria.html?categoria=marvel">Marvel</a>
+        <a href="categoria.html?categoria=anime">Anime</a>
+        <a href="categoria.html?categoria=games">Games</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5544991009184" target="_blank">WhatsApp</a>
+        <a href="personalizados.html">Projetos personalizados</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>POP INGÁ ©️ 2026</span>
+      <span>Colecionáveis Geek & Personalizados</span>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const categoriaSlug = params.get("categoria");
+      const buscaInicial = params.get("busca") || "";
+
+      const tituloCategoria = document.getElementById("tituloCategoria");
+      const descricaoCategoria = document.getElementById("descricaoCategoria");
+      const categoriaTag = document.getElementById("categoriaTag");
+      const quantidadeProdutos = document.getElementById("quantidadeProdutos");
+      const gridCategoria = document.getElementById("gridCategoria");
+      const estadoVazio = document.getElementById("estadoVazioCategoria");
+      const buscaInput = document.getElementById("buscaCategoria");
+      const ordenacaoSelect = document.getElementById("ordenacaoProdutos");
+      const breadcrumbAtual = document.getElementById("breadcrumbAtual");
+
+      let produtosBase = [];
+      let produtosFiltrados = [];
+
+      const mapaCategorias = {
+        "dc": {
+          nome: "DC",
+          descricao: "Explore nossa seleção de personagens icônicos da DC, com opções para fãs e colecionadores."
+        },
+        "marvel": {
+          nome: "Marvel",
+          descricao: "Encontre heróis, vilões e versões especiais do universo Marvel."
+        },
+        "anime": {
+          nome: "Anime",
+          descricao: "Uma seleção de Funkos inspirados nos animes e personagens mais queridos."
+        },
+        "disney": {
+          nome: "Disney",
+          descricao: "Magia, nostalgia e personagens clássicos reunidos em uma coleção especial."
+        },
+        "series": {
+          nome: "Séries",
+          descricao: "Os personagens das séries mais marcantes em versões colecionáveis."
+        },
+        "filmes": {
+          nome: "Filmes",
+          descricao: "Itens inspirados em grandes clássicos e sucessos do cinema."
+        },
+        "games": {
+          nome: "Games",
+          descricao: "Personagens e universos dos games em peças para coleção."
+        },
+        "musica": {
+          nome: "Música",
+          descricao: "Artistas e bandas icônicas em versões Funko Pop para fãs de música."
+        },
+        "star-wars": {
+          nome: "Star Wars",
+          descricao: "A galáxia muito, muito distante reunida em uma seleção especial."
+        },
+        "harry-potter": {
+          nome: "Harry Potter",
+          descricao: "Itens mágicos para fãs do universo de Hogwarts."
+        }
+      };
+
+      function escaparHtml(texto) {
+        return String(texto || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function obterNomeCategoria() {
+        if (!categoriaSlug) return "Todos os produtos";
+        return mapaCategorias[categoriaSlug]?.nome || categoriaSlug;
+      }
+
+      function obterDescricaoCategoria() {
+        if (!categoriaSlug) {
+          return "Veja todo o catálogo da POP INGÁ em uma única página.";
+        }
+        return mapaCategorias[categoriaSlug]?.descricao || "Confira os produtos desta categoria.";
+      }
+
+      function cardProduto(produto) {
+        const nome = escaparHtml(produto.nome);
+        const imagem = escaparHtml(produto.imagem_url || "");
+        const slug = escaparHtml(produto.slug || "");
+        const categoria = escaparHtml(produto.categoria_nome || "");
+        const subcategoria = escaparHtml(produto.subcategoria || "");
+
+        return `
+          <article class="product">
+            <div class="product-image">
+              <img src="${imagem}" alt="${nome}" loading="lazy" />
+            </div>
+
+            <div class="product-body">
+              <div class="product-category">${categoria} • ${subcategoria}</div>
+              <h3 class="product-title">${nome}</h3>
+              <div class="price">R$ ${formatPrice(produto.preco)}</div>
+
+              <div class="product-actions">
+                <a href="produto.html?slug=${slug}" class="btn btn-view">Detalhes</a>
+                <a
+                  href="https://wa.me/5544991009184?text=${encodeURIComponent(`Olá, tenho interesse no ${produto.nome}`)}"
+                  target="_blank"
+                  class="btn btn-buy"
+                >
+                  Comprar
+                </a>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      function aplicarOrdenacao(lista) {
+        const valor = ordenacaoSelect.value;
+
+        if (valor === "menor-preco") {
+          return [...lista].sort((a, b) => Number(a.preco) - Number(b.preco));
+        }
+
+        if (valor === "maior-preco") {
+          return [...lista].sort((a, b) => Number(b.preco) - Number(a.preco));
+        }
+
+        if (valor === "nome") {
+          return [...lista].sort((a, b) => String(a.nome).localeCompare(String(b.nome), "pt-BR"));
+        }
+
+        return [...lista].sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+      }
+
+      function renderizarGrid(lista) {
+        quantidadeProdutos.textContent = String(lista.length);
+
+        if (!lista.length) {
+          gridCategoria.style.display = "none";
+          estadoVazio.style.display = "flex";
+          return;
+        }
+
+        estadoVazio.style.display = "none";
+        gridCategoria.style.display = "grid";
+        gridCategoria.innerHTML = lista.map(cardProduto).join("");
+      }
+
+      function aplicarFiltros() {
+        const termo = buscaInput.value.trim().toLowerCase();
+
+        let lista = [...produtosBase];
+
+        if (termo) {
+          lista = lista.filter((p) =>
+            String(p.nome || "").toLowerCase().includes(termo) ||
+            String(p.subcategoria || "").toLowerCase().includes(termo) ||
+            String(p.categoria_nome || "").toLowerCase().includes(termo)
+          );
+        }
+
+        produtosFiltrados = aplicarOrdenacao(lista);
+        renderizarGrid(produtosFiltrados);
+      }
+
+      async function carregarCategoria() {
+        try {
+          const produtos = await getProducts();
+          const nomeCategoria = obterNomeCategoria();
+          const descricao = obterDescricaoCategoria();
+
+          tituloCategoria.textContent = nomeCategoria;
+          descricaoCategoria.textContent = descricao;
+          categoriaTag.textContent = categoriaSlug ? nomeCategoria.toUpperCase() : "CATÁLOGO COMPLETO";
+          breadcrumbAtual.textContent = nomeCategoria;
+
+          if (buscaInicial) {
+            buscaInput.value = buscaInicial;
+          }
+
+          produtosBase = categoriaSlug
+            ? produtos.filter((p) => p.categoria_slug === categoriaSlug)
+            : [...produtos];
+
+          aplicarFiltros();
+        } catch (erro) {
+          console.error(erro);
+          tituloCategoria.textContent = "Erro ao carregar categoria";
+          descricaoCategoria.textContent = "Não foi possível carregar os produtos agora.";
+          gridCategoria.style.display = "none";
+          estadoVazio.style.display = "flex";
+        }
+      }
+
+      buscaInput.addEventListener("input", aplicarFiltros);
+      ordenacaoSelect.addEventListener("change", aplicarFiltros);
+
+      carregarCategoria();
+    })();
+  </script>
+
+  <style>
+    .categoria-page{
+      padding-top:40px;
+      padding-bottom:20px;
+    }
+
+    .categoria-breadcrumb{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:20px;
+    }
+
+    .categoria-breadcrumb a{
+      color:var(--muted);
+      transition:.2s;
+    }
+
+    .categoria-breadcrumb a:hover{
+      color:var(--text);
+    }
+
+    .categoria-hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:end;
+      padding:28px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+    }
+
+    .categoria-tag{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,216,77,.12);
+      color:var(--primary);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.05em;
+      margin-bottom:14px;
+    }
+
+    .categoria-hero h1{
+      font-size:38px;
+      line-height:1.1;
+      margin-bottom:10px;
+    }
+
+    .categoria-hero p{
+      color:var(--muted);
+      max-width:760px;
+      line-height:1.8;
+    }
+
+    .categoria-hero-meta{
+      display:grid;
+      gap:14px;
+    }
+
+    .categoria-meta-card{
+      background:#0f1420;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      display:grid;
+      gap:8px;
+    }
+
+    .categoria-meta-card strong{
+      font-size:28px;
+      line-height:1;
+      color:var(--primary);
+    }
+
+    .categoria-meta-card span,
+    .categoria-meta-card label{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .categoria-meta-card select{
+      min-height:46px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#0b0e14;
+      color:var(--text);
+      padding:10px 12px;
+      outline:none;
+    }
+
+    .categoria-grid-section{
+      padding-top:20px;
+    }
+
+    .categoria-vazio{
+      min-height:320px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      gap:10px;
+      padding:30px;
+    }
+
+    .categoria-vazio h3{
+      font-size:24px;
+    }
+
+    .categoria-vazio p{
+      color:var(--muted);
+      max-width:520px;
+    }
+
+    body.light-mode .categoria-hero{
+      background:#fff;
+      border-color:rgba(17,24,39,.08);
+    }
+
+    body.light-mode .categoria-hero h1{
+      color:#111827;
+    }
+
+    body.light-mode .categoria-hero p,
+    body.light-mode .categoria-breadcrumb,
+    body.light-mode .categoria-breadcrumb a,
+    body.light-mode .categoria-meta-card span,
+    body.light-mode .categoria-meta-card label{
+      color:#667085;
+    }
+
+    body.light-mode .categoria-meta-card{
+      background:#fff;
+      border-color:rgba(17,24,39,.08);
+    }
+
+    body.light-mode .categoria-meta-card select{
+      background:#fff;
+      border-color:rgba(17,24,39,.08);
+      color:#111827;
+    }
+
+    body.light-mode .categoria-vazio{
+      background:#fff;
+      border-color:rgba(17,24,39,.08);
+    }
+
+    body.light-mode .categoria-vazio h3{
+      color:#111827;
+    }
+
+    body.light-mode .categoria-vazio p{
+      color:#667085;
+    }
+
+    @media(max-width:1000px){
+      .categoria-hero{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+      .categoria-hero{
+        padding:20px;
+      }
+
+      .categoria-hero h1{
+        font-size:30px;
+      }
+    }
+  </style>
+</body>
+</html>

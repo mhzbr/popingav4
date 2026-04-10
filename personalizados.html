@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funkos Personalizados | POP INGÁ</title>
+  <meta
+    name="description"
+    content="Monte seu Funko Personalizado na POP INGÁ. Escolha estilo, visual, acessórios e envie seu briefing direto pelo WhatsApp."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-list">
+        <span>🎨 Projeto exclusivo</span>
+        <span>🧩 Monte do seu jeito</span>
+        <span>💬 Atendimento direto no WhatsApp</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="POP INGÁ">
+          <img src="assets/images/logo.png" alt="POP INGÁ" class="logo-img" />
+        </a>
+
+        <form class="searchbar" action="categoria.html" method="get">
+          <input type="text" name="busca" placeholder="Buscar Funko..." />
+          <button class="search-btn" type="submit" aria-label="Buscar">🔎</button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-btn" id="theme-toggle" type="button" aria-label="Alternar tema">
+            🌙
+          </button>
+
+          <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+            🛒
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <div class="nav-inner">
+          <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="categoria.html">Todos</a>
+            <a href="assets/produtos/dc.html">DC</a>
+            <a href="assets/produtos/marvel.html">Marvel</a>
+            <a href="assets/produtos/anime.html">Anime</a>
+            <a href="assets/produtos/disney.html">Disney</a>
+            <a href="assets/produtos/series.html">Séries</a>
+            <a href="assets/produtos/filmes.html">Filmes</a>
+            <a href="assets/produtos/games.html">Games</a>
+            <a href="assets/produtos/musica.html">Música</a>
+            <a href="assets/produtos/star-wars.html">Star Wars</a>
+            <a href="assets/produtos/harry-potter.html">Harry Potter</a>
+          </div>
+
+          <a href="personalizados.html" class="nav-cta">
+            ✨ Personalizados
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="custom-funko">
+      <div class="custom-overlay">
+        <div class="container">
+          <div class="custom-content">
+            <div class="custom-text">
+              <span class="custom-tag">EXCLUSIVO POP INGÁ</span>
+              <h2>Crie seu Funko Personalizado</h2>
+              <p>
+                Transforme sua ideia em uma peça única. Perfeito para presente,
+                homenagem, coleção, casal, profissão ou personagem autoral.
+              </p>
+
+              <ul class="custom-list">
+                <li>✔ Projeto exclusivo</li>
+                <li>✔ Atendimento personalizado</li>
+                <li>✔ Envio direto para WhatsApp</li>
+              </ul>
+
+              <div class="custom-actions">
+                <a href="#form-personalizado" class="custom-btn primary">
+                  Montar meu Funko
+                </a>
+
+                <a href="https://wa.me/5544991009184" target="_blank" class="custom-btn secondary">
+                  Falar no WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Como funciona</h2>
+            <p>Um processo simples para transformar sua ideia em colecionável</p>
+          </div>
+        </div>
+
+        <div class="products-grid">
+          <article class="product">
+            <div class="product-body">
+              <div class="product-category">ETAPA 1</div>
+              <h3 class="product-title">Você envia sua ideia</h3>
+              <div class="price">Briefing</div>
+              <p style="color:var(--muted); font-size:14px; line-height:1.7;">
+                Preencha o formulário com nome, estilo, visual, acessórios e detalhes do personagem.
+              </p>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-body">
+              <div class="product-category">ETAPA 2</div>
+              <h3 class="product-title">Analisamos a proposta</h3>
+              <div class="price">Validação</div>
+              <p style="color:var(--muted); font-size:14px; line-height:1.7;">
+                Avaliamos viabilidade, complexidade, acabamento e prazo para te responder com clareza.
+              </p>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-body">
+              <div class="product-category">ETAPA 3</div>
+              <h3 class="product-title">Seguimos pelo WhatsApp</h3>
+              <div class="price">Atendimento</div>
+              <p style="color:var(--muted); font-size:14px; line-height:1.7;">
+                Você recebe o retorno com os próximos passos, referências e alinhamento do pedido.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="finder-form-section" id="form-personalizado">
+      <div class="container finder-grid">
+        <div class="finder-text">
+          <span class="finder-tag">Monte do seu jeito</span>
+          <h2>Configure seu Funko Personalizado</h2>
+          <p>
+            Preencha o máximo de detalhes possível. Quanto mais completo o briefing,
+            melhor conseguimos entender sua ideia e te retornar com precisão.
+          </p>
+
+          <ul class="finder-list">
+            <li>✔ Pode ser você, casal, pet, profissão ou personagem</li>
+            <li>✔ Informe roupas, acessórios, cabelo e pose desejada</li>
+            <li>✔ Pode incluir frase ou nome na caixa</li>
+            <li>✔ Depois você pode mandar referências por imagem no WhatsApp</li>
+          </ul>
+        </div>
+
+        <div class="finder-form-card">
+          <form id="customFunkoForm" class="finder-form">
+            <div class="finder-field">
+              <label for="customNome">Seu nome</label>
+              <input type="text" id="customNome" placeholder="Digite seu nome" required />
+            </div>
+
+            <div class="finder-field">
+              <label for="customWhatsapp">Seu WhatsApp</label>
+              <input type="text" id="customWhatsapp" placeholder="(44) 99100-9184" required />
+            </div>
+
+            <div class="finder-field">
+              <label for="customPersonagem">Nome do personagem / pessoa</label>
+              <input type="text" id="customPersonagem" placeholder="Ex: Bruno versão CEO" required />
+            </div>
+
+            <div class="finder-field">
+              <label for="customTema">Tema</label>
+              <select id="customTema" required>
+                <option value="">Selecione</option>
+                <option>Profissional</option>
+                <option>Geek</option>
+                <option>Anime</option>
+                <option>Herói</option>
+                <option>Vilão</option>
+                <option>Casal</option>
+                <option>Pet</option>
+                <option>Presente</option>
+                <option>Outro</option>
+              </select>
+            </div>
+
+            <div class="finder-field">
+              <label for="customRoupa">Roupa / visual</label>
+              <input type="text" id="customRoupa" placeholder="Ex: terno preto, camisa azul..." />
+            </div>
+
+            <div class="finder-field">
+              <label for="customAcessorios">Acessórios</label>
+              <input type="text" id="customAcessorios" placeholder="Ex: óculos, notebook, espada..." />
+            </div>
+
+            <div class="finder-field">
+              <label for="customCabelo">Cabelo / aparência</label>
+              <input type="text" id="customCabelo" placeholder="Ex: cabelo curto, barba, boné..." />
+            </div>
+
+            <div class="finder-field">
+              <label for="customBase">Base / cenário</label>
+              <input type="text" id="customBase" placeholder="Ex: escritório, gamer, mágico..." />
+            </div>
+
+            <div class="finder-field">
+              <label for="customCaixa">Texto da caixa</label>
+              <input type="text" id="customCaixa" placeholder="Ex: Bruno Alves, edição limitada..." />
+            </div>
+
+            <div class="finder-field">
+              <label for="customPrazo">Prazo desejado</label>
+              <input type="text" id="customPrazo" placeholder="Ex: presente para final do mês" />
+            </div>
+
+            <div class="finder-field finder-field-full">
+              <label for="customObs">Detalhes importantes</label>
+              <textarea
+                id="customObs"
+                rows="5"
+                placeholder="Descreva pose, expressão, roupas, profissão, referências e tudo que for importante para a criação."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="finder-submit-btn">
+              Enviar projeto no WhatsApp
+            </button>
+
+            <p id="customSuccessMessage" class="finder-success-message" style="display:none;">
+              Redirecionando para o WhatsApp com seu briefing preenchido.
+            </p>
+
+            <p id="customErrorMessage" class="finder-error-message" style="display:none;">
+              Não foi possível abrir o WhatsApp agora. Tente novamente.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Ideias que funcionam muito bem</h2>
+            <p>Alguns formatos mais pedidos pelos clientes</p>
+          </div>
+        </div>
+
+        <div class="products-grid">
+          <article class="product">
+            <div class="product-body">
+              <div class="product-category">PRESENTE</div>
+              <h3 class="product-title">Casal e datas especiais</h3>
+              <p style="color:var(--muted); font-size:14px; line-height:1.7;">
+                Uma peça única para aniversário, namoro, casamento ou homenagem especial.
+              </p>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-body">
+              <div class="product-category">PROFISSIONAL</div>
+              <h3 class="product-title">Profissão e identidade</h3>
+              <p style="color:var(--muted); font-size:14px; line-height:1.7;">
+                Empresário, advogado, médico, criador de conteúdo, gamer e muito mais.
+              </p>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-body">
+              <div class="product-category">GEEK</div>
+              <h3 class="product-title">Versão autoral</h3>
+              <p style="color:var(--muted); font-size:14px; line-height:1.7;">
+                Uma versão sua inspirada em anime, herói, vilão ou universo temático.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer site-footer-rich">
+    <section class="banner-full-image">
+      <a href="index.html">
+        <img src="assets/images/footer.png" alt="Banner POP INGÁ" />
+      </a>
+    </section>
+
+    <div class="container footer-rich-grid">
+      <div class="footer-brand">
+        <img src="assets/images/logo.png" alt="POP INGÁ" class="footer-logo" />
+        <p>
+          A POP INGÁ é sua loja de colecionáveis geek, com catálogo variado,
+          atendimento próximo e projetos personalizados para quem quer algo único.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Navegação</h4>
+        <a href="index.html">Home</a>
+        <a href="categoria.html">Todos os Funkos</a>
+        <a href="personalizados.html">Personalizados</a>
+        <a href="carrinho.html">Carrinho</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Categorias</h4>
+        <a href="assets/produtos/dc.html">DC</a>
+        <a href="assets/produtos/marvel.html">Marvel</a>
+        <a href="assets/produtos/anime.html">Anime</a>
+        <a href="assets/produtos/games.html">Games</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5544991009184" target="_blank">WhatsApp</a>
+        <a href="assets/produtos/ofertas.html">Ofertas</a>
+        <a href="assets/produtos/exclusivos.html">Exclusivos</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>POP INGÁ © 2026</span>
+      <span>Colecionáveis Geek & Personalizados</span>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const customForm = document.getElementById("customFunkoForm");
+      const successMessage = document.getElementById("customSuccessMessage");
+      const errorMessage = document.getElementById("customErrorMessage");
+
+      if (!customForm) return;
+
+      customForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (successMessage) successMessage.style.display = "none";
+        if (errorMessage) errorMessage.style.display = "none";
+
+        try {
+          const nome = document.getElementById("customNome")?.value.trim() || "";
+          const whatsapp = document.getElementById("customWhatsapp")?.value.trim() || "";
+          const personagem = document.getElementById("customPersonagem")?.value.trim() || "";
+          const tema = document.getElementById("customTema")?.value.trim() || "";
+          const roupa = document.getElementById("customRoupa")?.value.trim() || "";
+          const acessorios = document.getElementById("customAcessorios")?.value.trim() || "";
+          const cabelo = document.getElementById("customCabelo")?.value.trim() || "";
+          const base = document.getElementById("customBase")?.value.trim() || "";
+          const caixa = document.getElementById("customCaixa")?.value.trim() || "";
+          const prazo = document.getElementById("customPrazo")?.value.trim() || "";
+          const obs = document.getElementById("customObs")?.value.trim() || "";
+
+          const mensagem =
+`Olá, POP INGÁ! Quero solicitar um Funko Personalizado:
+
+Nome: ${nome}
+WhatsApp: ${whatsapp}
+
+Personagem / Pessoa: ${personagem}
+Tema: ${tema || "-"}
+Roupa / Visual: ${roupa || "-"}
+Acessórios: ${acessorios || "-"}
+Cabelo / Aparência: ${cabelo || "-"}
+Base / Cenário: ${base || "-"}
+Texto da caixa: ${caixa || "-"}
+Prazo desejado: ${prazo || "-"}
+
+Detalhes importantes:
+${obs || "-"}
+
+Depois posso enviar referências por imagem no WhatsApp.`;
+
+          const whatsappUrl = `https://wa.me/5544991009184?text=${encodeURIComponent(mensagem)}`;
+          window.open(whatsappUrl, "_blank");
+
+          if (successMessage) successMessage.style.display = "block";
+          customForm.reset();
+        } catch (error) {
+          if (errorMessage) errorMessage.style.display = "block";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

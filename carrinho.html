@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrinho | POP INGÁ</title>
+  <meta
+    name="description"
+    content="Confira os produtos adicionados ao carrinho na POP INGÁ e finalize seu pedido pelo WhatsApp."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="carrinho.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-list">
+        <span>🚚 Envio para todo o Brasil</span>
+        <span>🛡️ Produtos 100% originais</span>
+        <span>💳 Pix e parcelamento</span>
+      </div>
+      <div class="topbar-list">
+        <span>🛒 Seu pedido está quase pronto</span>
+      </div>
+    </div>
+  </div>
+
+<div id="header-global"></div>
+
+  <main class="cart-page">
+    <div class="container">
+
+      <div class="cart-header">
+        <div>
+          <span class="cart-page-tag">Resumo da compra</span>
+          <h1>Seu carrinho</h1>
+          <p>Revise os itens antes de enviar seu pedido pelo WhatsApp.</p>
+        </div>
+
+        <div class="cart-header-actions">
+          <a href="categoria.html" class="secondary-link">Continuar comprando</a>
+          <button class="clear-cart-btn" id="clearCartBtn">Limpar carrinho</button>
+        </div>
+      </div>
+
+      <div class="cart-layout">
+
+        <section class="cart-items-card">
+          <div class="cart-card-title-row">
+            <h2>Itens adicionados</h2>
+            <span class="cart-mini-badge">
+              <span class="cart-count">0</span> item(ns)
+            </span>
+          </div>
+
+          <div id="cart-items" class="cart-items-list"></div>
+        </section>
+
+        <aside class="cart-summary-card">
+          <h2>Resumo</h2>
+
+          <div class="summary-box">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <strong id="cart-total">R$ 0,00</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Frete</span>
+              <span>A combinar</span>
+            </div>
+
+            <div class="summary-row total">
+              <span>Total estimado</span>
+              <strong id="cart-total-final">R$ 0,00</strong>
+            </div>
+          </div>
+
+          <div class="summary-note">
+            <p>
+              O pedido será enviado para o WhatsApp com todos os itens e quantidades.
+            </p>
+          </div>
+
+          <button class="checkout-btn" onclick="sendToWhats()">
+            Finalizar pelo WhatsApp
+          </button>
+
+          <a href="assets/produtos/exclusivos.html" class="summary-link">
+            Ver exclusivos
+          </a>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="cart.js"></script>
+  <script>
+    function syncCartTotalFinal() {
+      const total = document.getElementById("cart-total");
+      const finalTotal = document.getElementById("cart-total-final");
+      if (total && finalTotal) {
+        finalTotal.textContent = total.textContent || "R$ 0,00";
+      }
+    }
+
+    const originalRenderCart = typeof renderCart === "function" ? renderCart : null;
+
+    if (originalRenderCart) {
+      renderCart = function () {
+        originalRenderCart();
+        syncCartTotalFinal();
+        updateEmptyState();
+      };
+    }
+
+    function updateEmptyState() {
+      const container = document.getElementById("cart-items");
+      if (!container) return;
+
+      const hasItems = container.children.length > 0 && !container.innerHTML.includes("empty-cart");
+      if (!hasItems) {
+        container.innerHTML = `
+          <div class="empty-cart">
+            <div class="empty-cart-icon">🛒</div>
+            <h3>Seu carrinho está vazio</h3>
+            <p>Adicione seus Funkos favoritos para montar o pedido.</p>
+            <a href="categoria.html" class="empty-cart-btn">
+              Explorar coleção
+            </a>
+          </div>
+        `;
+      }
+    }
+
+    document.getElementById("clearCartBtn").addEventListener("click", function () {
+      localStorage.removeItem("cart");
+      if (typeof cart !== "undefined") {
+        cart = [];
+      }
+      if (typeof updateCartCount === "function") updateCartCount();
+      if (typeof renderCart === "function") renderCart();
+      syncCartTotalFinal();
+    });
+
+    const themeKey = "popinga_theme";
+    const themeToggle = document.getElementById("themeToggle");
+
+    function applyTheme(theme) {
+      if (theme === "light") {
+        document.body.classList.add("light-mode");
+        themeToggle.textContent = "☀️";
+      } else {
+        document.body.classList.remove("light-mode");
+        themeToggle.textContent = "🌙";
+      }
+      localStorage.setItem(themeKey, theme);
+    }
+
+    const savedTheme = localStorage.getItem(themeKey) || "dark";
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const isLight = document.body.classList.contains("light-mode");
+      applyTheme(isLight ? "dark" : "light");
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof renderCart === "function") renderCart();
+      syncCartTotalFinal();
+      updateEmptyState();
+    });
+  </script>
+</body>
+</html>
